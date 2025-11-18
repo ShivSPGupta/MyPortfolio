@@ -1,38 +1,98 @@
+import React from 'react';
 import { motion } from 'framer-motion';
+import {
+  FaReact,
+  FaNodeJs,
+  FaCss3Alt,
+  FaHtml5,
+  FaBootstrap,
+  FaGit,
+  FaGithub,
+  FaJsSquare,
+  FaLinux,
+} from 'react-icons/fa';
+import { VscVscode } from "react-icons/vsc";
+import {
+  SiExpress,
+  SiTailwindcss,
+  SiPostman,
+  SiRedux,
+  SiReact,
+  SiFramer,
+  SiMongodb,
+  SiMysql,
+  SiVercel,
+  SiIntellijidea,
+  SiFirebase,
+  SiJsonwebtokens,
+} from 'react-icons/si';
 
 const skills = [
-  { name: 'React', level: 90 },
-  { name: 'JavaScript', level: 85 },
-  { name: 'Tailwind CSS', level: 80 },
-  { name: 'Material UI', level: 75 },
-  { name: 'Framer Motion', level: 70 },
-  { name: 'Node.js', level: 65 },
-  { name: 'Git & GitHub', level: 80 },
+  { name: 'HTML5', icon: <FaHtml5 className="text-orange-600" /> },
+  { name: 'CSS3', icon: <FaCss3Alt className="text-blue-600" /> },
+  { name: 'JavaScript', icon: <FaJsSquare className="text-yellow-400" /> },
+  { name: 'Bootstrap', icon: <FaBootstrap className="text-purple-700" /> },
+  { name: 'React', icon: <FaReact className="text-blue-500" /> },
+  { name: 'React Native', icon: <SiReact className="text-blue-600" /> },
+  { name: 'Redux', icon: <SiRedux className="text-purple-600" /> },
+  { name: 'Framer Motion', icon: <SiFramer className="text-blue-800" /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+  { name: 'Node.js', icon: <FaNodeJs className="text-green-600" /> },
+  { name: 'Express.js', icon: <SiExpress className="text-gray-800" /> },
+  { name: 'MongoDB', icon: <SiMongodb className="text-green-700" /> },
+  { name: 'MySQL', icon: <SiMysql className="text-blue-700" /> },
+  { name: 'Postman', icon: <SiPostman className="text-orange-500" /> },
+  { name: 'Git', icon: <FaGit className="text-red-600" /> },
+  { name: 'GitHub', icon: <FaGithub className="text-gray-900" /> },
+  { name: 'Linux', icon: <FaLinux className="text-black" /> },
+  { name: 'VS Code', icon: <VscVscode className="text-blue-700" /> },
+  { name: 'IntelliJ IDEA', icon: <SiIntellijidea className="text-pink-600" /> },
+  { name: 'Firebase', icon: <SiFirebase className="text-yellow-500" /> },
+  { name: 'JWT', icon: <SiJsonwebtokens className="text-purple-600" /> },
+  { name: 'Vercel', icon: <SiVercel className="text-black" /> },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-4xl mx-auto px-4 sm:px-0">
-      <h2 className="text-4xl font-bold mb-8">Skills</h2>
-      <div className="space-y-6 max-w-2xl mx-auto">
-        {skills.map(({ name, level }, i) => (
+    <motion.section
+      id="skills"
+      className="max-w-5xl mx-auto px-4 sm:px-6 py-20"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Skills</h2>
+      <div className="grid grid-cols-3 sm:grid-cols-7 gap-10 justify-items-center">
+        {skills.map(({ name, icon }) => (
           <motion.div
             key={name}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
+            variants={itemVariants}
+            className="flex flex-col items-center justify-items-center space-y-3 cursor-pointer text-center"
+            whileHover={{ scale: 1.3, color: '#2563EB' }} // Tailwind blue-600
+            transition={{ type: 'spring', stiffness: 300 }}
+            title={name}
+            aria-label={name}
           >
-            <div className="flex justify-between mb-1 font-semibold">{name}<span>{level}%</span></div>
-            <div className="w-full h-5 bg-gray-300 rounded-full overflow-hidden">
-              <div
-                className="h-5 bg-blue-600 rounded-full transition-all duration-700"
-                style={{ width: `${level}%` }}
-              />
-            </div>
+            <div className="text-6xl transition-colors duration-300">{icon}</div>
+            <span className="text-sm font-semibold text-gray-700">{name}</span>
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
