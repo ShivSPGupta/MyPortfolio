@@ -1,20 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "motion/react";
 
 const projects = [
   {
     id: 1,
-    title: 'Portfolio Website',
-    description: 'Modern React portfolio using Tailwind, Material UI & Vite.',
-    imageUrl: '/project1.png', // Place your actual image in /public folder
-    liveUrl: 'https://yourportfolio.com',
+    title: "Portfolio Website",
+    description: "Modern React portfolio using Tailwind, Material UI & Vite.",
+    imageUrl:
+      "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+    liveUrl: "https://figmatask-digital-agency.vercel.app/",
   },
   {
     id: 2,
-    title: 'Todo App',
-    description: 'React todo app with local storage and clean UX/UI.',
-    imageUrl: '/project2.png',
-    liveUrl: 'https://yourtodoapp.com',
+    title: "Todo App",
+    description: "React todo app with local storage and clean UX/UI.",
+    imageUrl: "/project2.png",
+    liveUrl: "https://yourtodoapp.com",
+  },
+  {
+    id: 3,
+    title: "Figma to React",
+    description: "Convert Figma designs into a modern, responsive React app using Tailwind, and Vite.",
+    imageUrl:
+      "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+    liveUrl: "https://figmatask-digital-agency.vercel.app/",
   },
   // Add more projects as required
 ];
@@ -30,7 +39,7 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 export default function Projects() {

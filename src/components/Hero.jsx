@@ -1,12 +1,14 @@
 import React from "react";
-import { motion} from "motion/react";
+import { motion } from "motion/react";
 import { Button } from "@mui/material";
-import SocialLinks from './SocialLinks';
+import SocialLinks from "./SocialLinks";
 
-
-
-
-const phrases = ["Full Stack Developer", "Cybersecurity Enthusiast", "MERN", "Automation"];
+const phrases = [
+  "Full Stack Developer",
+  "Cybersecurity Enthusiast",
+  "MERN",
+  "Automation",
+];
 
 export default function Hero() {
   const [currentPhrase, setCurrentPhrase] = React.useState(0);
@@ -50,7 +52,8 @@ export default function Hero() {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="max-w-3xl text-xl text-gray-700 dark:text-gray-600 drop-shadow-md"
       >
-        Frontend developer creating seamless user experiences with React, Tailwind, Material UI & Framer Motion.
+        Frontend developer creating seamless user experiences with React,
+        Tailwind, Material UI & Framer Motion.
       </motion.p>
 
       {/* Typewriter Rolling Text */}
@@ -67,14 +70,14 @@ export default function Hero() {
 
       {/* ... existing Hero component code ... */}
 
-<motion.div
-  initial={{ scale: 0.7, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{ delay: 1.5, duration: 0.6 }}
-  className="mt-7"
->
-  <SocialLinks />
-</motion.div>
+      <motion.div
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
+        className="mt-7"
+      >
+        <SocialLinks />
+      </motion.div>
 
       {/* Button */}
       <motion.div
@@ -83,7 +86,13 @@ export default function Hero() {
         transition={{ delay: 0.85, duration: 0.6 }}
         className="mt-10"
       >
-        <Button variant="contained" color="primary" href="#contact" size="large" sx={{ px: 6, py: 1.8 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          href="#contact"
+          size="large"
+          sx={{ px: 6, py: 1.8 }}
+        >
           Get In Touch
         </Button>
       </motion.div>

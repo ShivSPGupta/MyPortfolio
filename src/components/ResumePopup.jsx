@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,14 +7,14 @@ import {
   Stack,
   Button,
   Tooltip,
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import FullscreenIcon from '@mui/icons-material/Fullscreen';
-import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import { zoomPlugin } from '@react-pdf-viewer/zoom';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/zoom/lib/styles/index.css';
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import { zoomPlugin } from "@react-pdf-viewer/zoom";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/zoom/lib/styles/index.css";
 
 export default function ResumePopup({ open, onClose }) {
   const [fullscreen, setFullscreen] = useState(false);
@@ -22,7 +22,7 @@ export default function ResumePopup({ open, onClose }) {
   const zoomPluginInstance = zoomPlugin();
   const { ZoomInButton, ZoomOutButton, CurrentScale } = zoomPluginInstance;
 
-  const pdfUrl = '/ShivShankarGupt_FullStack_MERN_Resume.pdf';
+  const pdfUrl = "/ShivShankarGupt_FullStack_MERN_Resume.pdf";
 
   return (
     <Dialog
@@ -32,27 +32,33 @@ export default function ResumePopup({ open, onClose }) {
         onClose();
       }}
       fullWidth
-      maxWidth={fullscreen ? false : 'md'}
+      maxWidth={fullscreen ? false : "md"}
       sx={{
-        height: fullscreen ? '100vh' : '90vh',
-        top: fullscreen ? 0 : 'auto',
-        pointerEvents: 'auto',
-        margin: fullscreen ? 0 : 'auto',
-        '& .MuiDialog-paper': {
-          margin: fullscreen ? 0 : 'auto',
-          width: fullscreen ? '100vw' : undefined,
-          height: fullscreen ? '100vh' : undefined,
-          maxWidth: fullscreen ? '100vw' : undefined,
-          maxHeight: fullscreen ? '100vh' : undefined,
+        height: fullscreen ? "100vh" : "90vh",
+        top: fullscreen ? 0 : "auto",
+        pointerEvents: "auto",
+        margin: fullscreen ? 0 : "auto",
+        "& .MuiDialog-paper": {
+          margin: fullscreen ? 0 : "auto",
+          width: fullscreen ? "100vw" : undefined,
+          height: fullscreen ? "100vh" : undefined,
+          maxWidth: fullscreen ? "100vw" : undefined,
+          maxHeight: fullscreen ? "100vh" : undefined,
           borderRadius: fullscreen ? 0 : undefined,
-          overflow: 'hidden',
+          overflow: "hidden",
         },
       }}
     >
-      <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <DialogTitle
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         Resume
         <Stack direction="row" spacing={1} alignItems="center">
-          <Tooltip title={fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}>
+          <Tooltip title={fullscreen ? "Exit Fullscreen" : "Fullscreen"}>
             <IconButton
               aria-label="toggle fullscreen"
               onClick={() => setFullscreen(!fullscreen)}
@@ -62,7 +68,13 @@ export default function ResumePopup({ open, onClose }) {
             </IconButton>
           </Tooltip>
           <Tooltip title="Close">
-            <IconButton aria-label="close" onClick={() => { setFullscreen(false); onClose(); }}>
+            <IconButton
+              aria-label="close"
+              onClick={() => {
+                setFullscreen(false);
+                onClose();
+              }}
+            >
               <CloseIcon />
             </IconButton>
           </Tooltip>
@@ -70,7 +82,14 @@ export default function ResumePopup({ open, onClose }) {
       </DialogTitle>
 
       {/* Toolbar */}
-      <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between" px={5} pb={1}>
+      <Stack
+        direction="row"
+        spacing={2}
+        alignItems="center"
+        justifyContent="space-between"
+        px={5}
+        pb={1}
+      >
         <ZoomOutButton />
         <CurrentScale />
         <ZoomInButton />
@@ -81,7 +100,7 @@ export default function ResumePopup({ open, onClose }) {
           download="ShivShankarGupta_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
         >
           <Button variant="outlined" size="small">
             Download
@@ -89,7 +108,13 @@ export default function ResumePopup({ open, onClose }) {
         </a>
       </Stack>
 
-      <DialogContent dividers sx={{ p: 0, height: fullscreen ? 'calc(100% - 106px)' : 'calc(90vh - 106px)' }}>
+      <DialogContent
+        dividers
+        sx={{
+          p: 0,
+          height: fullscreen ? "calc(100% - 106px)" : "calc(90vh - 106px)",
+        }}
+      >
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <Viewer fileUrl={pdfUrl} plugins={[zoomPluginInstance]} />
         </Worker>

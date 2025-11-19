@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React from "react";
+import { motion } from "motion/react";
 
 const circles = Array.from({ length: 8 });
 
@@ -23,7 +23,7 @@ export default function BackgroundEffect() {
           transition={{
             duration: 7,
             repeat: Infinity,
-            repeatType: 'mirror',
+            repeatType: "mirror",
             delay: i,
           }}
         />

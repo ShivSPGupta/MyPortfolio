@@ -1,12 +1,32 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import React from "react";
+import { motion } from "motion/react";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const socials = [
-  { name: 'GitHub', icon: <FaGithub />, url: 'https://github.com/yourusername', color: '#181717' },
-  { name: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourusername', color: '#0A66C2' },
-  { name: 'Twitter', icon: <FaTwitter />, url: 'https://twitter.com/yourusername', color: '#1DA1F2' },
-  { name: 'Instagram', icon: <FaInstagram />, url: 'https://instagram.com/yourusername', color: '#E4405F' },
+  {
+    name: "GitHub",
+    icon: <FaGithub />,
+    url: "https://github.com/yourusername",
+    color: "#181717",
+  },
+  {
+    name: "LinkedIn",
+    icon: <FaLinkedin />,
+    url: "https://linkedin.com/in/yourusername",
+    color: "#0A66C2",
+  },
+  {
+    name: "Twitter",
+    icon: <FaTwitter />,
+    url: "https://twitter.com/yourusername",
+    color: "#1DA1F2",
+  },
+  {
+    name: "Instagram",
+    icon: <FaInstagram />,
+    url: "https://instagram.com/yourusername",
+    color: "#E4405F",
+  },
 ];
 
 const containerVariants = {
@@ -20,7 +40,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export default function SocialLinks({ className }) {
@@ -42,7 +62,7 @@ export default function SocialLinks({ className }) {
           variants={itemVariants}
           className="flex items-center justify-center rounded-full bg-white/25 backdrop-blur-md shadow-md cursor-pointer"
           whileHover={{ scale: 1.3 }}
-          transition={{ type: 'spring', stiffness: 300 }}
+          transition={{ type: "spring", stiffness: 300 }}
         >
           {/* Animate ICON color only (fixes glitch) */}
           <motion.span

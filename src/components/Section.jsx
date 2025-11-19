@@ -1,8 +1,8 @@
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function Section({ id, title, children }) {
