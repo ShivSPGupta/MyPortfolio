@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Menu, Close } from '@mui/icons-material';
 
 export default function Header({ scrolled, openResume }) {

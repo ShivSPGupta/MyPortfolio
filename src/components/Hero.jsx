@@ -1,6 +1,10 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion} from "motion/react";
 import { Button } from "@mui/material";
+import SocialLinks from './SocialLinks';
+
+
+
 
 const phrases = ["Full Stack Developer", "Cybersecurity Enthusiast", "MERN", "Automation"];
 
@@ -60,6 +64,17 @@ export default function Hero() {
         {displayedText}
         <span className="ml-1 inline-block w-[2px] bg-current animate-[blink_1s_infinite]" />
       </motion.p>
+
+      {/* ... existing Hero component code ... */}
+
+<motion.div
+  initial={{ scale: 0.7, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ delay: 1.5, duration: 0.6 }}
+  className="mt-7"
+>
+  <SocialLinks />
+</motion.div>
 
       {/* Button */}
       <motion.div

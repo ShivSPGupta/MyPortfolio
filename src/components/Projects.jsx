@@ -1,40 +1,84 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const projects = [
   {
-    name: 'Portfolio Website',
-    description: 'A portfolio to showcase my work using React, Tailwind CSS, and Material UI.',
-    link: 'https://github.com/yourusername/portfolio',
+    id: 1,
+    title: 'Portfolio Website',
+    description: 'Modern React portfolio using Tailwind, Material UI & Vite.',
+    imageUrl: '/project1.png', // Place your actual image in /public folder
+    liveUrl: 'https://yourportfolio.com',
   },
   {
-    name: 'Todo App',
-    description: 'A React todo app with local storage persistence.',
-    link: 'https://github.com/yourusername/todo-app',
+    id: 2,
+    title: 'Todo App',
+    description: 'React todo app with local storage and clean UX/UI.',
+    imageUrl: '/project2.png',
+    liveUrl: 'https://yourtodoapp.com',
   },
+  // Add more projects as required
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
 
 export default function Projects() {
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-0">
-      <h2 className="text-4xl font-bold mb-8">Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        {projects.map(({ name, description, link }, i) => (
-          <motion.a
-            key={name}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 rounded-lg shadow-lg bg-white hover:shadow-xl transition cursor-pointer"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.6 }}
+    <motion.section
+      id="projects"
+      className="max-w-6xl mx-auto px-4 sm:px-6 py-20"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
+        Projects
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        {projects.map(({ id, title, description, imageUrl, liveUrl }) => (
+          <motion.div
+            key={id}
+            variants={cardVariants}
+            whileHover={{ scale: 1.03 }}
+            className="relative flex flex-col bg-white/20 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transform-gpu hover:shadow-xl transition-shadow duration-300"
           >
-            <h3 className="font-semibold mb-3 text-lg text-gray-900">{name}</h3>
-            <p className="text-gray-600">{description}</p>
-          </motion.a>
+            <div className="h-48 sm:h-56 w-full overflow-hidden rounded-t-xl">
+              <img
+                src={imageUrl}
+                alt={title}
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                {title}
+              </h3>
+              <p className="text-gray-700 flex-grow">{description}</p>
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block px-6 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition w-max"
+              >
+                Live Demo
+              </a>
+            </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

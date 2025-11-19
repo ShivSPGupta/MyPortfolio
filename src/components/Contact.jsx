@@ -25,54 +25,78 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="max-w-4xl mx-auto px-4 sm:px-0"
+      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 bg-white/20 backdrop-blur-md rounded-xl shadow-lg"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-4xl font-bold mb-8">Get In Touch</h2>
-      <form onSubmit={sendEmail} className="max-w-2xl mx-auto space-y-8">
+      <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Get In Touch</h2>
+      <form onSubmit={sendEmail} className="max-w-3xl mx-auto space-y-8">
         <TextField
-          label="Your Name"
+          fullWidth
+          required
           name="name"
+          label="Your Name"
           variant="filled"
           value={formData.name}
           onChange={handleChange}
-          fullWidth
-          required
           sx={{
-            '& .MuiFilledInput-root': { backgroundColor: '#f3f4f6' },
-            '& .MuiInputLabel-root': { color: 'gray' },
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(6px)',
+            borderRadius: 1,
+            '& .MuiFilledInput-root': {
+              backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            },
+            '& .MuiInputLabel-root': { color: 'rgba(0,0,0,0.7)' },
+            '& .MuiInputBase-input': { color: '#000' },
+            '& .MuiFilledInput-underline:before': { borderBottomColor: 'rgba(0,0,0,0.1)' },
+            '& .MuiFilledInput-underline:hover:before': { borderBottomColor: 'rgba(0,0,0,0.3)' },
           }}
         />
         <TextField
-          label="Your Email"
+          fullWidth
+          required
           name="email"
           type="email"
+          label="Your Email"
           variant="filled"
           value={formData.email}
           onChange={handleChange}
-          fullWidth
-          required
           sx={{
-            '& .MuiFilledInput-root': { backgroundColor: '#f3f4f6' },
-            '& .MuiInputLabel-root': { color: 'gray' },
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(6px)',
+            borderRadius: 1,
+            '& .MuiFilledInput-root': {
+              backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            },
+            '& .MuiInputLabel-root': { color: 'rgba(0,0,0,0.7)' },
+            '& .MuiInputBase-input': { color: '#000' },
+            '& .MuiFilledInput-underline:before': { borderBottomColor: 'rgba(0,0,0,0.1)' },
+            '& .MuiFilledInput-underline:hover:before': { borderBottomColor: 'rgba(0,0,0,0.3)' },
           }}
         />
         <TextField
-          label="Message"
+          fullWidth
+          required
           name="message"
+          label="Message"
+          multiline
+          rows={6}
           variant="filled"
           value={formData.message}
           onChange={handleChange}
-          fullWidth
-          multiline
-          rows={5}
-          required
           sx={{
-            '& .MuiFilledInput-root': { backgroundColor: '#f3f4f6' },
-            '& .MuiInputLabel-root': { color: 'gray' },
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(6px)',
+            borderRadius: 1,
+            '& .MuiFilledInput-root': {
+              backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            },
+            '& .MuiInputLabel-root': { color: 'rgba(0,0,0,0.7)' },
+            '& .MuiInputBase-input': { color: '#000' },
+            '& .MuiFilledInput-underline:before': { borderBottomColor: 'rgba(0,0,0,0.1)' },
+            '& .MuiFilledInput-underline:hover:before': { borderBottomColor: 'rgba(0,0,0,0.3)' },
           }}
         />
         <Button
@@ -81,13 +105,12 @@ export default function Contact() {
           startIcon={<EmailIcon />}
           fullWidth
           size="large"
+          sx={{ fontWeight: 'bold' }}
         >
           Send Message
         </Button>
       </form>
-      {status && (
-        <p className="mt-6 text-center font-medium text-green-600">{status}</p>
-      )}
+      {status && <p className="mt-6 text-center font-medium text-green-700">{status}</p>}
     </motion.section>
   );
 }

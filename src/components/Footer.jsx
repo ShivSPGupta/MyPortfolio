@@ -1,14 +1,13 @@
+import React from 'react';
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-8 flex flex-col items-center text-center space-y-2 select-none">
-      <div>© {new Date().getFullYear()} Your Name</div>
-      <div className="flex space-x-6 text-sm">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-          LinkedIn
-        </a>
+    <footer
+      className="fixed bottom-0 w-full bg-white/20 backdrop-blur-xl border-t border-white/30 shadow-lg text-center py-4 select-none"
+      style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)' }}
+    >
+      <div className="max-w-6xl mx-auto text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+        © {new Date().getFullYear()} Shiv Shankar Gupta. All rights reserved.
       </div>
     </footer>
   );

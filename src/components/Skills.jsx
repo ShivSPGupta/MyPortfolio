@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import {
   FaReact,
   FaNodeJs,
@@ -12,15 +12,16 @@ import {
   FaLinux,
 } from 'react-icons/fa';
 import { VscVscode } from "react-icons/vsc";
+import { TbBrandFramerMotion } from "react-icons/tb";
 import {
   SiExpress,
   SiTailwindcss,
   SiPostman,
   SiRedux,
   SiReact,
-  SiFramer,
   SiMongodb,
   SiMysql,
+  SiRadixui,
   SiVercel,
   SiIntellijidea,
   SiFirebase,
@@ -35,7 +36,7 @@ const skills = [
   { name: 'React', icon: <FaReact className="text-blue-500" /> },
   { name: 'React Native', icon: <SiReact className="text-blue-600" /> },
   { name: 'Redux', icon: <SiRedux className="text-purple-600" /> },
-  { name: 'Framer Motion', icon: <SiFramer className="text-blue-800" /> },
+  { name: 'Motion', icon: <TbBrandFramerMotion className="text-yellow-300" /> },
   { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
   { name: 'Node.js', icon: <FaNodeJs className="text-green-600" /> },
   { name: 'Express.js', icon: <SiExpress className="text-gray-800" /> },
@@ -49,6 +50,7 @@ const skills = [
   { name: 'IntelliJ IDEA', icon: <SiIntellijidea className="text-pink-600" /> },
   { name: 'Firebase', icon: <SiFirebase className="text-yellow-500" /> },
   { name: 'JWT', icon: <SiJsonwebtokens className="text-purple-600" /> },
+  { name: 'Radix UI', icon: <SiRadixui className="text-black" /> },
   { name: 'Vercel', icon: <SiVercel className="text-black" /> },
 ];
 
@@ -82,7 +84,7 @@ export default function Skills() {
           <motion.div
             key={name}
             variants={itemVariants}
-            className="flex flex-col items-center justify-items-center space-y-3 cursor-pointer text-center"
+            className="flex flex-col items-center justify-center space-y-3 cursor-pointer text-center"
             whileHover={{ scale: 1.3, color: '#2563EB' }} // Tailwind blue-600
             transition={{ type: 'spring', stiffness: 300 }}
             title={name}
