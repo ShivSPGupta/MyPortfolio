@@ -42,7 +42,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className="text-6xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg sm:text-7xl mb-6"
       >
-        Hi, I'm Your Name
+        Hi, I'm Shiv Shankar Gupta
       </motion.h1>
 
       {/* Subtitle */}
@@ -52,8 +52,9 @@ export default function Hero() {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="max-w-3xl text-xl text-gray-700 dark:text-gray-600 drop-shadow-md"
       >
-        Frontend developer creating seamless user experiences with React,
-        Tailwind, Material UI & Framer Motion.
+        A Full-Stack MERN Developer passionate about building clean, efficient
+        web apps with React, Node.js, and MongoDB. Let’s create something
+        amazing together!
       </motion.p>
 
       {/* Typewriter Rolling Text */}

@@ -1,32 +1,45 @@
 import React from "react";
 import { motion } from "motion/react";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaYoutube,
+  FaInstagram,
+} from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 
 const socials = [
   {
     name: "GitHub",
     icon: <FaGithub />,
-    url: "https://github.com/yourusername",
+    url: "https://github.com/ShivSPGupta",
     color: "#181717",
   },
   {
     name: "LinkedIn",
     icon: <FaLinkedin />,
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://www.linkedin.com/in/shiv-shankar-gupta/",
     color: "#0A66C2",
   },
   {
-    name: "Twitter",
-    icon: <FaTwitter />,
-    url: "https://twitter.com/yourusername",
-    color: "#1DA1F2",
+    name: "X",
+    icon: <FaSquareXTwitter />,
+    url: "https://x.com/ShivGupta101",
+    color: "#181717",
   },
   {
-    name: "Instagram",
-    icon: <FaInstagram />,
-    url: "https://instagram.com/yourusername",
-    color: "#E4405F",
+    name: "YouTube",
+    icon: <FaYoutube />,
+    url: "https://www.youtube.com/@ShivShankarGupta01",
+    color: "#FF0000",
   },
+  // {
+  //   name: "Instagram",
+  //   icon: <FaInstagram />,
+  //   url: "https://instagram.com/yourusername",
+  //   color: "#E4405F",
+  // },
 ];
 
 const containerVariants = {

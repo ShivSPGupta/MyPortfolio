@@ -1,11 +1,10 @@
-import React from "react";
 import { motion } from "motion/react";
 
 const projects = [
   {
     id: 1,
     title: "Portfolio Website",
-    description: "Modern React portfolio using Tailwind, Material UI & Vite.",
+    description: "Modern React portfolio using Tailwind, Framer Motion, Material UI & Vite.",
     imageUrl:
       "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
     liveUrl: "https://figmatask-digital-agency.vercel.app/",
@@ -20,7 +19,8 @@ const projects = [
   {
     id: 3,
     title: "Figma to React",
-    description: "Convert Figma designs into a modern, responsive React app using Tailwind, and Vite.",
+    description:
+      "Convert Figma designs into a modern, responsive React app using Tailwind, and Vite.",
     imageUrl:
       "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
     liveUrl: "https://figmatask-digital-agency.vercel.app/",
