@@ -6,18 +6,18 @@ const projects = [
     title: "Portfolio Website",
     description: "Modern React portfolio using Tailwind, Framer Motion, Material UI & Vite.",
     imageUrl:
-      "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
-    liveUrl: "https://figmatask-digital-agency.vercel.app/",
+      "https://api.microlink.io/?url=https://my-new-portfolio-seven-rust.vercel.app/&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+    liveUrl: "https://my-new-portfolio-seven-rust.vercel.app/",
   },
+  // {
+  //   id: 0,
+  //   title: "Todo App",
+  //   description: "React todo app with local storage and clean UX/UI.",
+  //   imageUrl: "/project2.png",
+  //   liveUrl: "https://yourtodoapp.com",
+  // },
   {
     id: 2,
-    title: "Todo App",
-    description: "React todo app with local storage and clean UX/UI.",
-    imageUrl: "/project2.png",
-    liveUrl: "https://yourtodoapp.com",
-  },
-  {
-    id: 3,
     title: "Figma to React",
     description:
       "Convert Figma designs into a modern, responsive React app using Tailwind, and Vite.",
