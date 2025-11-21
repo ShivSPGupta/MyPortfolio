@@ -6,8 +6,8 @@ const projects = [
     title: "Portfolio Website",
     description: "Modern React portfolio using Tailwind, Framer Motion, Material UI & Vite.",
     imageUrl:
-      "https://api.microlink.io/?url=https://my-new-portfolio-seven-rust.vercel.app/&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
-    liveUrl: "https://my-new-portfolio-seven-rust.vercel.app/",
+      "https://api.microlink.io/?url=https://my-portfolio-six-azure-30.vercel.app/&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+    liveUrl: "https://my-portfolio-six-azure-30.vercel.app/",
   },
   // {
   //   id: 0,
