@@ -20,7 +20,7 @@ const projects = [
     id: 2,
     title: "Figma to React",
     description:
-      "Convert Figma designs into a modern, responsive React app using Tailwind, and Vite.",
+      "Convert Figma designs into a modern, responsive React app using Tailwind CSS, and Vite.",
     imageUrl:
       "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
     liveUrl: "https://figmatask-digital-agency.vercel.app/",
