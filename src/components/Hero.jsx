@@ -4,10 +4,10 @@ import { Button } from "@mui/material";
 import SocialLinks from "./SocialLinks";
 
 const phrases = [
-  "Full Stack Developer",
+  "Full Stack Engineer",
+  "MERN Stack",
+  "Automation Engineer",
   "Cybersecurity Enthusiast",
-  "MERN",
-  "Automation",
 ];
 
 export default function Hero() {
