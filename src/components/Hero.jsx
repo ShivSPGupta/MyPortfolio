@@ -74,7 +74,7 @@ export default function Hero() {
       <motion.div
         initial={{ scale: 0.7, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
         className="mt-7"
       >
         <SocialLinks />
