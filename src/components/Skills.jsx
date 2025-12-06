@@ -9,6 +9,7 @@ import {
   FaGit,
   FaGithub,
   FaJsSquare,
+  FaJava,
   FaLinux,
 } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
@@ -48,10 +49,11 @@ const skills = [
   { name: "Linux", icon: <FaLinux className="text-black" /> },
   { name: "VS Code", icon: <VscVscode className="text-blue-700" /> },
   { name: "IntelliJ IDEA", icon: <SiIntellijidea className="text-pink-600" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+  { name: "Java", icon: <FaJava className="text-yellow-400" /> },
   { name: "JWT", icon: <SiJsonwebtokens className="text-purple-600" /> },
-  { name: "Radix UI", icon: <SiRadixui className="text-black" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
   { name: "Vercel", icon: <SiVercel className="text-black" /> },
+  { name: "Radix UI", icon: <SiRadixui className="text-black" /> },
 ];
 
 const containerVariants = {

@@ -9,13 +9,13 @@ const projects = [
       "https://api.microlink.io/?url=https://my-portfolio-six-azure-30.vercel.app/&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
     liveUrl: "https://my-portfolio-six-azure-30.vercel.app/",
   },
-  // {
-  //   id: 0,
-  //   title: "Todo App",
-  //   description: "React todo app with local storage and clean UX/UI.",
-  //   imageUrl: "/project2.png",
-  //   liveUrl: "https://yourtodoapp.com",
-  // },
+  {
+    id: 2,
+    title: "Flixxit App",
+    description: "Developed a Netflix-style OTT platform with a React–Redux–Tailwind frontend and a secure Express–MongoDB–JWT backend.",
+    imageUrl: "https://api.microlink.io/?url=https://flixxit-app.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
+    liveUrl: "https://flixxit-app.vercel.app/",
+  },
   {
     id: 2,
     title: "Figma to React",
