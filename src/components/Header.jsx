@@ -10,77 +10,115 @@ export default function Header({ scrolled, openResume }) {
     setMenuOpen(false);
   };
 
-  const links = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
+  const menuVariants = {
+    hidden: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    visible: {
+      height: "auto",
+      opacity: 1,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  };
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 border-t border-gray-200
-      transition-all duration-300
-      ${scrolled ? "backdrop-blur-md bg-white/40 shadow-md" : "bg-transparent"}
-    `}
+    <motion.header
+      animate={{
+        backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
+        backgroundColor: scrolled
+          ? "rgba(255 255 255 / 0.4)"
+          : "rgba(255, 255, 255, 0)",
+        boxShadow: scrolled ? "0 4px 15px rgba(0,0,0,0.1)" : "none",
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 w-full z-50 border-t border-gray-200"
+      style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "none" }}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <h1
           onClick={handleScrollTop}
-          className="font-bold text-2xl cursor-pointer hover:text-blue-600 transition"
+          className="font-bold text-2xl select-none cursor-pointer hover:text-blue-600 transition"
           tabIndex={0}
           role="button"
+          aria-label="Scroll to top"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") handleScrollTop();
+          }}
         >
           Shiv Shankar Gupta
         </h1>
 
-        {/* Desktop */}
+        {/* Desktop menu */}
         <div className="hidden sm:flex space-x-8 text-gray-700 font-medium items-center">
-          {links.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-blue-600 transition">
-              {item.label}
-            </a>
-          ))}
+          <a href="#about" className="hover:text-blue-600 transition">
+            About
+          </a>
+          <a href="#skills" className="hover:text-blue-600 transition">
+            Skills
+          </a>
+          <a href="#projects" className="hover:text-blue-600 transition">
+            Projects
+          </a>
+          <a href="#contact" className="hover:text-blue-600 transition">
+            Contact
+          </a>
           <button
             onClick={openResume}
-            className="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 transition ml-4"
           >
             Resume
           </button>
         </div>
 
-        {/* Mobile button */}
-        <button
-          aria-label={menuOpen ? "Close Menu" : "Open Menu"}
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="sm:hidden text-gray-700 hover:text-blue-600"
-        >
-          {menuOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
-        </button>
+        {/* Hamburger menu icon */}
+        <div className="sm:hidden flex items-center">
+          <button
+            aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded"
+          >
+            {menuOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Animated mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="sm:hidden bg-white/70 backdrop-blur-lg border-t border-gray-200 shadow-md"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={menuVariants}
+            className="sm:hidden bg-white/70 backdrop-blur-lg border-t border-gray-200 shadow-md overflow-hidden"
           >
             <div className="flex flex-col items-center py-6 space-y-6 font-medium text-gray-700 text-lg">
-              {links.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="hover:text-blue-600"
-                >
-                  {item.label}
-                </a>
-              ))}
-
+              <a
+                href="#about"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-blue-600"
+              >
+                About
+              </a>
+              <a
+                href="#skills"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-blue-600"
+              >
+                Skills
+              </a>
+              <a
+                href="#projects"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-blue-600"
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-blue-600"
+              >
+                Contact
+              </a>
               <button
                 onClick={() => {
                   openResume();
@@ -94,6 +132,6 @@ export default function Header({ scrolled, openResume }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
