@@ -92,7 +92,7 @@ export default function Hero() {
           color="primary"
           href="#contact"
           size="large"
-          sx={{ px: 6, py: 1.8 }}
+          sx={{ px: 6, py: 1.5 }}
         >
           Get In Touch
         </Button>

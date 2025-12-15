@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer
-      className="fixed bottom-0 w-full bg-white/20 backdrop-blur-xl border-t border-white/30 shadow-lg text-center py-4 select-none"
+      className="fixed bottom-0 w-full z-50 bg-white/20 backdrop-blur-xl border-t border-white/30 shadow-lg text-center py-4 select-none"
       style={{
         WebkitBackdropFilter: "blur(12px)",
         backdropFilter: "blur(12px)",

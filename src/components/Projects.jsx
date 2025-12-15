@@ -17,7 +17,7 @@ const projects = [
     liveUrl: "https://flixxit-app.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Figma to React",
     description:
       "Convert Figma designs into a modern, responsive React app using Tailwind CSS, and Vite.",
