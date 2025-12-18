@@ -28,7 +28,7 @@ export default function Header({ scrolled, openResume }) {
           : "rgba(255, 255, 255, 0.1)",
         boxShadow: scrolled ? "0 4px 15px rgba(0,0,0,0.1)" : "none",
       }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      transition={{ duration: 0.1, ease: "easeInOut" }}
       className="fixed -top-0.5 w-full z-50 border-t border-gray-200"
       style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "none" }}
     >

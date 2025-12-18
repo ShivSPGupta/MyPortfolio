@@ -23,7 +23,7 @@ export default function App() {
   return (
     <>
       <Header scrolled={scrolled} openResume={() => setResumeOpen(true)} />
-      <main className="pt-20 max-w-5xl mx-auto px-4 space-y-36">
+      <main className="pt-20 max-w-5xl mx-auto px-4 space-y-36 overflow-hidden">
         <Hero />
         <About />
         <Skills />
