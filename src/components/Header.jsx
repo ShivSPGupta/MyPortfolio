@@ -24,12 +24,12 @@ export default function Header({ scrolled, openResume }) {
       animate={{
         backdropFilter: scrolled ? "blur(12px)" : "blur(5px)",
         backgroundColor: scrolled
-          ? "rgba(255 255 255 / 0.4)"
-          : "rgba(255, 255, 255, 0.1)",
+          ? "rgba(255 255 255 / 0.5)"
+          : "rgba(255, 255, 255, 0.3)",
         boxShadow: scrolled ? "0 4px 15px rgba(0,0,0,0.1)" : "none",
       }}
-      transition={{ duration: 0.1, ease: "easeInOut" }}
-      className="fixed -top-0.5 w-full z-50 border-t border-gray-200"
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 w-full z-50 border-t border-gray-200"
       style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "none" }}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
