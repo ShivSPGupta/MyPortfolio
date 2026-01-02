@@ -3,21 +3,21 @@ import { motion } from "motion/react";
 
 const workHistory = [
   {
-    role: "MERN Stack Intern",
+    role: "MERN Stack (Internship / Project-Based)",
     company: "SequelString AI Pvt Ltd",
     period: "Jul 2025 – Sep 2025",
     description:
       "Developed responsive MERN stack web applications and optimized RESTful APIs for scalable performance.",
   },
   {
-    role: "React JS Developer Trainee",
+    role: "React JS Developer (Internship / Project-Based)",
     company: "QuadB Technologies",
     period: "Apr 2025 – Jun 2025",
     description:
       "Building responsive web apps using React, Tailwind CSS, and Material UI, focusing on performance and UX.",
   },
   {
-    role: "Web Developer Intern",
+    role: "Web Developer (Internship / Project-Based)",
     company: "7 Star MedTech Pvt Ltd",
     period: "Jan 2025 – Apr 2025",
     description:

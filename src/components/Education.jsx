@@ -9,7 +9,7 @@ const education = [
     detail: 'Studied Mechatronics, FEA, and Design Engineering.',
   },
   {
-    title: 'Full Stack Development (MERN)',
+    title: 'PG Diploma in Full Stack Development (MERN)',
     institution: 'upGrad',
     period: '2023',
     detail: 'Completed professional certification focused on MERN, modern Java & DSA.',
