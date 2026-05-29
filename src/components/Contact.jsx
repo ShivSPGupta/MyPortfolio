@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
@@ -19,7 +19,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus("Sending...");
     emailjs
-      .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID")
+      .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formData, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
       .then(() => {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });

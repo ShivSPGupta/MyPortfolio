@@ -3,6 +3,13 @@ import { motion } from "motion/react";
 
 const workHistory = [
   {
+    role: "MERN Stack Developer",
+    company: "CollabKaroo",
+    period: "Feb 2026 – Present",
+    description:
+      "Working on scalable backend systems and realtime features using NestJS, TypeScript, PostgreSQL, Redis, and Socket.IO. Built secure authentication workflows with JWT and Redis session validation, developed realtime community chat systems, optimized REST APIs, and contributed to campaign, leaderboard, and admin management modules. Also worked on deployment workflows, automated testing, Swagger documentation, and backend infrastructure using Docker, GitHub Actions, CI/CD pipelines, and Nginx.",
+  },
+  {
     role: "MERN Stack (Internship / Project-Based)",
     company: "SequelString AI Pvt Ltd",
     period: "Jul 2025 – Sep 2025",
