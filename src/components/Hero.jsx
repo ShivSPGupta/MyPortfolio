@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import { Button } from "@mui/material";
 import SocialLinks from "./SocialLinks";
 
@@ -37,16 +37,16 @@ export default function Hero() {
 
   return (
     <section className="min-h-[85vh] flex flex-col justify-center items-center text-center px-4 sm:px-0">
-      <motion.h1
+      <Motion.h1
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
         className="text-6xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg sm:text-7xl mb-6"
       >
         Hi, I'm Shiv Shankar Gupta
-      </motion.h1>
+      </Motion.h1>
 
-      <motion.p
+      <Motion.p
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
@@ -56,9 +56,9 @@ export default function Hero() {
         scalable web applications, secure REST APIs, realtime systems, and
         production-ready backend services using React.js, Next.js, Node.js,
         NestJS, PostgreSQL, MongoDB, Redis, Docker, and CI/CD workflows.
-      </motion.p>
+      </Motion.p>
 
-      <motion.p
+      <Motion.p
         key={currentPhrase}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -67,18 +67,18 @@ export default function Hero() {
       >
         {displayedText}
         <span className="ml-1 inline-block w-[2px] bg-current animate-[blink_1s_infinite]" />
-      </motion.p>
+      </Motion.p>
 
-      <motion.div
+      <Motion.div
         initial={{ scale: 0.7, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
         className="mt-7"
       >
         <SocialLinks />
-      </motion.div>
+      </Motion.div>
 
-      <motion.div
+      <Motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.85, duration: 0.6 }}
@@ -86,14 +86,20 @@ export default function Hero() {
       >
         <Button
           variant="contained"
-          color="primary"
           href="#contact"
           size="large"
-          sx={{ px: 6, py: 1.5 }}
+          sx={{
+            px: 5,
+            py: 1.4,
+            borderRadius: "999px",
+            backgroundColor: "#0f172a",
+            boxShadow: "0 12px 30px rgba(15, 23, 42, 0.18)",
+            "&:hover": { backgroundColor: "#1e293b" },
+          }}
         >
           Get In Touch
         </Button>
-      </motion.div>
+      </Motion.div>
     </section>
   );
 }

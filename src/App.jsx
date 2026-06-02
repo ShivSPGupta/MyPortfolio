@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -8,7 +8,9 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
-import ResumePopup from "./components/ResumePopup";
+import BackgroundEffect from "./components/BackgroundEffect";
+
+const ResumePopup = lazy(() => import("./components/ResumePopup"));
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -21,19 +23,24 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <div className="relative min-h-screen overflow-x-hidden">
+      <BackgroundEffect />
       <Header scrolled={scrolled} openResume={() => setResumeOpen(true)} />
-      <main className="pt-20 max-w-5xl mx-auto px-4 space-y-36 overflow-hidden">
+      <main className="relative z-10 pt-20 max-w-5xl mx-auto px-4 space-y-36 overflow-hidden">
         <Hero />
         <About />
         <Skills />
-        <Experience/>
+        <Experience />
         <Projects />
-        <Education/>
+        <Education />
         <Contact />
       </main>
       <Footer />
-      <ResumePopup open={resumeOpen} onClose={() => setResumeOpen(false)} />
-    </>
+      {resumeOpen && (
+        <Suspense fallback={null}>
+          <ResumePopup open={resumeOpen} onClose={() => setResumeOpen(false)} />
+        </Suspense>
+      )}
+    </div>
   );
 }

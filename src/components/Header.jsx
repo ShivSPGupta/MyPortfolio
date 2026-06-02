@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { Menu, Close } from "@mui/icons-material";
 
 export default function Header({ scrolled, openResume }) {
@@ -11,127 +11,146 @@ export default function Header({ scrolled, openResume }) {
   };
 
   const menuVariants = {
-    hidden: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, y: -12, height: 0 },
     visible: {
-      height: "auto",
       opacity: 1,
-      transition: { duration: 0.3, ease: "easeInOut" },
+      y: 0,
+      height: "auto",
+      transition: { duration: 0.28, ease: "easeOut" },
     },
   };
 
   return (
-    <motion.header
-      animate={{
-        backdropFilter: scrolled ? "blur(12px)" : "blur(5px)",
-        backgroundColor: scrolled
-          ? "rgba(255 255 255 / 0.5)"
-          : "rgba(255, 255, 255, 0.3)",
-        boxShadow: scrolled ? "0 4px 15px rgba(0,0,0,0.1)" : "none",
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 w-full z-50 border-t border-gray-200"
-      style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "none" }}
-    >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1
-          onClick={handleScrollTop}
-          className="font-bold text-2xl select-none cursor-pointer hover:text-blue-600 transition"
-          tabIndex={0}
-          role="button"
-          aria-label="Scroll to top"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") handleScrollTop();
-          }}
-        >
-          Shiv Shankar Gupta
-        </h1>
-
-        {/* Desktop menu */}
-        <div className="hidden sm:flex space-x-8 text-gray-700 font-medium items-center">
-          <a href="#about" className="hover:text-blue-600 transition">
-            About
-          </a>
-          <a href="#skills" className="hover:text-blue-600 transition">
-            Skills
-          </a>
-          <a href="#projects" className="hover:text-blue-600 transition">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-blue-600 transition">
-            Contact
-          </a>
+    <div className="fixed inset-x-0 top-0 z-50 px-3 sm:px-4">
+      <Motion.header
+        animate={{
+          y: scrolled ? 0 : 0,
+          scale: scrolled ? 1 : 1,
+          boxShadow: scrolled
+            ? "0 18px 45px rgba(15, 23, 42, 0.12)"
+            : "0 10px 30px rgba(15, 23, 42, 0.08)",
+        }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="mx-auto max-w-6xl overflow-hidden rounded-b-2xl border-x border-b border-white/50 bg-white/55 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-2xl supports-[backdrop-filter]:bg-white/45"
+        style={{ WebkitBackdropFilter: "blur(18px)" }}
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent" />
+        <nav className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
           <button
-            onClick={openResume}
-            className="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 transition ml-4"
+            type="button"
+            onClick={handleScrollTop}
+            className="group flex items-center gap-3 text-left"
+            aria-label="Scroll to top"
           >
-            Resume
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-bold tracking-[0.2em] text-white shadow-lg shadow-slate-900/20 transition-transform duration-300 group-hover:scale-105">
+              SS
+            </span>
+            <span className="hidden sm:block">
+              <span className="block text-sm font-semibold tracking-[0.24em] text-slate-500 uppercase">
+                Portfolio
+              </span>
+              <span className="block text-base font-bold tracking-tight text-slate-950">
+                Shiv Shankar Gupta
+              </span>
+            </span>
           </button>
-        </div>
 
-        {/* Hamburger menu icon */}
-        <div className="sm:hidden flex items-center">
-          <button
-            aria-label={menuOpen ? "Close Menu" : "Open Menu"}
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded"
-          >
-            {menuOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
-          </button>
-        </div>
-      </nav>
+          <div className="hidden items-center gap-2 md:flex">
+            <a
+              href="#about"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+            >
+              About
+            </a>
+            <a
+              href="#skills"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+            >
+              Skills
+            </a>
+            <a
+              href="#projects"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+            >
+              Contact
+            </a>
+            <button
+              onClick={openResume}
+              className="ml-2 rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-slate-800"
+            >
+              Resume
+            </button>
+          </div>
 
-      {/* Animated mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={menuVariants}
-            className="sm:hidden bg-white/70 backdrop-blur-lg border-t border-gray-200 shadow-md overflow-hidden"
-          >
-            <div className="flex flex-col items-center py-6 space-y-6 font-medium text-gray-700 text-lg">
-              <a
-                href="#about"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-blue-600"
-              >
-                About
-              </a>
-              <a
-                href="#skills"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-blue-600"
-              >
-                Skills
-              </a>
-              <a
-                href="#projects"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-blue-600"
-              >
-                Projects
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-blue-600"
-              >
-                Contact
-              </a>
-              <button
-                onClick={() => {
-                  openResume();
-                  setMenuOpen(false);
-                }}
-                className="bg-blue-600 text-white rounded-md px-6 py-2 hover:bg-blue-700 transition"
-              >
-                Resume
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+          <div className="md:hidden">
+            <button
+              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-900/10 bg-white/70 text-slate-900 shadow-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/20"
+            >
+              {menuOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
+            </button>
+          </div>
+        </nav>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <Motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={menuVariants}
+              className="md:hidden border-t border-white/60 bg-white/75 px-4 pb-5 backdrop-blur-2xl"
+            >
+              <div className="grid gap-3 pt-4 text-sm font-medium">
+                <a
+                  href="#about"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                >
+                  About
+                </a>
+                <a
+                  href="#skills"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                >
+                  Skills
+                </a>
+                <a
+                  href="#projects"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                >
+                  Projects
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                >
+                  Contact
+                </a>
+                <button
+                  onClick={() => {
+                    openResume();
+                    setMenuOpen(false);
+                  }}
+                  className="rounded-xl bg-slate-950 px-4 py-3 text-left font-semibold text-white shadow-lg shadow-slate-950/15 transition hover:bg-slate-800"
+                >
+                  Resume
+                </button>
+              </div>
+            </Motion.div>
+          )}
+        </AnimatePresence>
+      </Motion.header>
+    </div>
   );
 }

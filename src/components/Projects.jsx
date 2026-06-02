@@ -1,18 +1,18 @@
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 const projects = [
   {
     id: 1,
     title: "Portfolio Website",
-    description: "Modern React portfolio using Tailwind, Framer Motion, Material UI & Vite.",
+    description: "Modern React portfolio using Tailwind, motion, Material UI & Vite.",
     imageUrl:
-      "https://api.microlink.io/?url=https://my-portfolio-six-azure-30.vercel.app/&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+      "https://api.microlink.io/?url=https://my-portfolio-six-azure-30.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
     liveUrl: "https://my-portfolio-six-azure-30.vercel.app/",
   },
   {
     id: 2,
     title: "Flixxit App",
-    description: "Developed a Netflix-style OTT platform with a React–Redux–Tailwind frontend and a secure Express–MongoDB–JWT backend.",
+    description: "Developed a Netflix-style OTT platform with a React-Redux-Tailwind frontend and a secure Express-MongoDB-JWT backend.",
     imageUrl: "https://api.microlink.io/?url=https://flixxit-app.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
     liveUrl: "https://flixxit-app.vercel.app/",
   },
@@ -20,12 +20,11 @@ const projects = [
     id: 3,
     title: "Figma to React",
     description:
-      "Convert Figma designs into a modern, responsive React app using Tailwind CSS, and Vite.",
+      "Convert Figma designs into a modern, responsive React app using Tailwind CSS and Vite.",
     imageUrl:
-      "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url", // Place your actual image in /public folder
+      "https://api.microlink.io/?url=https://figmatask-digital-agency.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     liveUrl: "https://figmatask-digital-agency.vercel.app/",
   },
-  // Add more projects as required
 ];
 
 const containerVariants = {
@@ -44,7 +43,7 @@ const cardVariants = {
 
 export default function Projects() {
   return (
-    <motion.section
+    <Motion.section
       id="projects"
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20"
       variants={containerVariants}
@@ -57,7 +56,7 @@ export default function Projects() {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         {projects.map(({ id, title, description, imageUrl, liveUrl }) => (
-          <motion.div
+          <Motion.div
             key={id}
             variants={cardVariants}
             whileHover={{ scale: 1.03 }}
@@ -80,14 +79,14 @@ export default function Projects() {
                 href={liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-block px-6 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition w-max"
+                className="mt-6 inline-block w-max rounded-full bg-slate-950 px-6 py-2 font-semibold text-white transition hover:bg-slate-800"
               >
                 Live Demo
               </a>
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

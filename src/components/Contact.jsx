@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
-import { motion } from "motion/react";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
@@ -11,6 +10,7 @@ export default function Contact() {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,23 +18,30 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("Sending...");
+    setIsError(false);
+
     emailjs
-      .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formData, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(() => {
         setStatus("Message sent successfully!");
+        setIsError(false);
         setFormData({ name: "", email: "", message: "" });
       })
-      .catch(() => setStatus("Failed to send message. Please try again."));
+      .catch(() => {
+        setStatus("Failed to send message. Please try again.");
+        setIsError(true);
+      });
   };
 
   return (
-    <motion.section
+    <section
       id="contact"
       className="max-w-6xl mx-auto px-4 sm:px-6 py-20 bg-white/20 backdrop-blur-md rounded-xl shadow-lg"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
     >
       <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
         Get In Touch
@@ -124,14 +131,28 @@ export default function Contact() {
           startIcon={<EmailIcon />}
           fullWidth
           size="large"
-          sx={{ fontWeight: "bold" }}
+          sx={{
+            fontWeight: "700",
+            px: 5,
+            py: 1.4,
+            borderRadius: "999px",
+            backgroundColor: "#0f172a",
+            boxShadow: "0 12px 30px rgba(15, 23, 42, 0.18)",
+            "&:hover": { backgroundColor: "#1e293b" },
+          }}
         >
           Send Message
         </Button>
       </form>
       {status && (
-        <p className="mt-6 text-center font-medium text-green-700">{status}</p>
+        <p
+          className={`mt-6 text-center font-medium ${
+            isError ? "text-red-700" : "text-green-700"
+          }`}
+        >
+          {status}
+        </p>
       )}
-    </motion.section>
+    </section>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import {
   FaReact,
   FaNodeJs,
@@ -43,28 +43,28 @@ const skills = [
   { name: "HTML5", icon: <FaHtml5 className="text-orange-600" /> },
   { name: "CSS3", icon: <FaCss3Alt className="text-blue-600" /> },
   { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
-  { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" /> },
+  { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
   { name: "Bootstrap", icon: <FaBootstrap className="text-purple-700" /> },
   { name: "React", icon: <FaReact className="text-blue-500" /> },
-  { name: 'Next.js', icon: <SiNextdotjs className="text-black" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
   { name: "React Native", icon: <SiReact className="text-blue-600" /> },
   { name: "Redux", icon: <SiRedux className="text-purple-600" /> },
   { name: "Motion", icon: <TbBrandFramerMotion className="text-yellow-300" /> },
   { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
   { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
   { name: "Express.js", icon: <SiExpress className="text-gray-800" /> },
-  { name: 'NestJS', icon: <SiNestjs className="text-red-600" /> },
+  { name: "NestJS", icon: <SiNestjs className="text-red-600" /> },
   { name: "MongoDB", icon: <SiMongodb className="text-green-700" /> },
   { name: "MySQL", icon: <SiMysql className="text-blue-700" /> },
-  { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-800" /> },
-  { name: 'Redis', icon: <SiRedis className="text-red-700" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-800" /> },
+  { name: "Redis", icon: <SiRedis className="text-red-700" /> },
   { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
   { name: "Git", icon: <FaGit className="text-red-600" /> },
   { name: "GitHub", icon: <FaGithub className="text-gray-900" /> },
-  { name: 'GitHub Actions', icon: <SiGithubactions className="text-black" /> },
-  { name: 'Nginx', icon: <SiNginx className="text-green-600" /> },
-  { name: 'Socket.IO', icon: <SiSocketdotio className="text-purple-600" /> },
-  { name: 'Docker', icon: <SiDocker className="text-blue-600" /> },
+  { name: "GitHub Actions", icon: <SiGithubactions className="text-black" /> },
+  { name: "Nginx", icon: <SiNginx className="text-green-600" /> },
+  { name: "Socket.IO", icon: <SiSocketdotio className="text-purple-600" /> },
+  { name: "Docker", icon: <SiDocker className="text-blue-600" /> },
   { name: "Linux", icon: <FaLinux className="text-black" /> },
   { name: "VS Code", icon: <VscVscode className="text-blue-700" /> },
   { name: "IntelliJ IDEA", icon: <SiIntellijidea className="text-pink-600" /> },
@@ -73,7 +73,7 @@ const skills = [
   { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
   { name: "Vercel", icon: <SiVercel className="text-black" /> },
   { name: "Radix UI", icon: <SiRadixui className="text-black" /> },
-  { name: 'ShadCN UI', icon: <SiShadcnui className="text-black" /> },
+  { name: "ShadCN UI", icon: <SiShadcnui className="text-black" /> },
 ];
 
 const containerVariants = {
@@ -92,7 +92,7 @@ const itemVariants = {
 
 export default function Skills() {
   return (
-    <motion.section
+    <Motion.section
       id="skills"
       className="max-w-5xl mx-auto px-4 sm:px-6 py-20"
       variants={containerVariants}
@@ -105,11 +105,11 @@ export default function Skills() {
       </h2>
       <div className="grid grid-cols-3 sm:grid-cols-7 gap-10 justify-items-center">
         {skills.map(({ name, icon }) => (
-          <motion.div
+          <Motion.div
             key={name}
             variants={itemVariants}
             className="flex flex-col items-center justify-center space-y-3 cursor-pointer text-center"
-            whileHover={{ scale: 1.3, color: "#2563EB" }} // Tailwind blue-600
+            whileHover={{ scale: 1.3, color: "#2563EB" }}
             transition={{ type: "spring", stiffness: 300 }}
             title={name}
             aria-label={name}
@@ -118,9 +118,9 @@ export default function Skills() {
               {icon}
             </div>
             <span className="text-sm font-semibold text-gray-700">{name}</span>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

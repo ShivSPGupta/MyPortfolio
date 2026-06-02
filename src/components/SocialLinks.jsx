@@ -1,13 +1,11 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import {
   FaGithub,
   FaLinkedin,
   FaYoutube,
-  FaInstagram,
 } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
 
 const socials = [
   {
@@ -56,16 +54,16 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-export default function SocialLinks({ className }) {
+export default function SocialLinks({ className = "" }) {
   return (
-    <motion.div
+    <Motion.div
       className={`grid grid-cols-4 max-w-xs mx-auto gap-8 justify-center items-center ${className}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       {socials.map(({ name, icon, url, color }) => (
-        <motion.a
+        <Motion.a
           key={name}
           href={url}
           target="_blank"
@@ -78,15 +76,15 @@ export default function SocialLinks({ className }) {
           transition={{ type: "spring", stiffness: 300 }}
         >
           {/* Animate ICON color only (fixes glitch) */}
-          <motion.span
+          <Motion.span
             className="text-6xl"
             whileHover={{ color }}
             transition={{ duration: 0.25 }}
           >
             {icon}
-          </motion.span>
-        </motion.a>
+          </Motion.span>
+        </Motion.a>
       ))}
-    </motion.div>
+    </Motion.div>
   );
 }

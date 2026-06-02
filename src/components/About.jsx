@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import SocialLinks from "./SocialLinks";
 
 export default function About() {
   return (
-    <motion.section
+    <Motion.section
       id="about"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -11,12 +11,10 @@ export default function About() {
       transition={{ duration: 0.6 }}
       className="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center"
     >
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
-        About Me
-      </h2>
+      <h2 className="text-4xl font-extrabold text-gray-900 mb-6">About Me</h2>
 
       <p className="text-lg leading-relaxed text-gray-700 max-w-3xl mx-auto">
-        I’m a Full Stack Developer with hands-on experience building scalable,
+        I'm a Full Stack Developer with hands-on experience building scalable,
         production-ready web applications using React.js, Next.js, Node.js,
         Express.js, NestJS, and MongoDB. I specialize in developing responsive
         user interfaces, secure backend services, REST APIs, and realtime
@@ -41,6 +39,6 @@ export default function About() {
       <div className="mt-10">
         <SocialLinks />
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

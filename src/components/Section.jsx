@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -7,7 +7,7 @@ const fadeInUp = {
 
 export default function Section({ id, title, children }) {
   return (
-    <motion.section
+    <Motion.section
       id={id}
       className="max-w-5xl mx-auto px-4 mb-20"
       initial="hidden"
@@ -17,6 +17,6 @@ export default function Section({ id, title, children }) {
     >
       <h2 className="text-4xl font-bold mb-8">{title}</h2>
       {children}
-    </motion.section>
+    </Motion.section>
   );
 }
