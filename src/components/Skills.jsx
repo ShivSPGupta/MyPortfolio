@@ -36,12 +36,14 @@ import {
   SiSocketdotio,
   SiShadcnui,
   SiDocker,
+  SiTypescript,
 } from "react-icons/si";
 
 const skills = [
   { name: "HTML5", icon: <FaHtml5 className="text-orange-600" /> },
   { name: "CSS3", icon: <FaCss3Alt className="text-blue-600" /> },
   { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
+  { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" /> },
   { name: "Bootstrap", icon: <FaBootstrap className="text-purple-700" /> },
   { name: "React", icon: <FaReact className="text-blue-500" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="text-black" /> },

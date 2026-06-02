@@ -4,10 +4,12 @@ import { Button } from "@mui/material";
 import SocialLinks from "./SocialLinks";
 
 const phrases = [
-  "Full Stack Engineer",
-  "MERN Stack",
-  "Automation Engineer",
-  "Cybersecurity Enthusiast",
+  "Software Engineer",
+  "Full Stack Developer",
+  "React.js Developer",
+  "Next.js Developer",
+  "NestJS Developer",
+  "Backend Developer",
 ];
 
 export default function Hero() {
@@ -35,7 +37,6 @@ export default function Hero() {
 
   return (
     <section className="min-h-[85vh] flex flex-col justify-center items-center text-center px-4 sm:px-0">
-      {/* Main Title */}
       <motion.h1
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -45,19 +46,18 @@ export default function Hero() {
         Hi, I'm Shiv Shankar Gupta
       </motion.h1>
 
-      {/* Subtitle */}
       <motion.p
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
         className="max-w-3xl text-xl text-gray-700 dark:text-gray-600 drop-shadow-md"
       >
-        A Full-Stack MERN Developer passionate about building clean, efficient
-        web apps with React, Node.js, and MongoDB. Let’s create something
-        amazing together!
+        Software Engineer and Full Stack Developer experienced in building
+        scalable web applications, secure REST APIs, realtime systems, and
+        production-ready backend services using React.js, Next.js, Node.js,
+        NestJS, PostgreSQL, MongoDB, Redis, Docker, and CI/CD workflows.
       </motion.p>
 
-      {/* Typewriter Rolling Text */}
       <motion.p
         key={currentPhrase}
         initial={{ opacity: 0, y: 10 }}
@@ -69,8 +69,6 @@ export default function Hero() {
         <span className="ml-1 inline-block w-[2px] bg-current animate-[blink_1s_infinite]" />
       </motion.p>
 
-      {/* ... existing Hero component code ... */}
-
       <motion.div
         initial={{ scale: 0.7, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -80,7 +78,6 @@ export default function Hero() {
         <SocialLinks />
       </motion.div>
 
-      {/* Button */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
