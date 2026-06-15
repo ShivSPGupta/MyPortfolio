@@ -11,31 +11,45 @@ export default function Header({ scrolled, openResume }) {
   };
 
   const menuVariants = {
-    hidden: { opacity: 0, y: -12, height: 0 },
+    hidden: {
+      opacity: 0,
+      y: -8,
+      height: 0,
+    },
     visible: {
       opacity: 1,
       y: 0,
       height: "auto",
-      transition: { duration: 0.28, ease: "easeOut" },
+      transition: {
+        height: { duration: 0.28, ease: "easeOut" },
+        opacity: { duration: 0.18, ease: "easeOut" },
+        y: { duration: 0.24, ease: "easeOut" },
+      },
+    },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: -8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: "easeOut" },
     },
   };
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 px-3 sm:px-4">
+    <div className="fixed inset-x-0 top-0 z-50">
       <Motion.header
         animate={{
-          y: scrolled ? 0 : 0,
-          scale: scrolled ? 1 : 1,
           boxShadow: scrolled
-            ? "0 18px 45px rgba(15, 23, 42, 0.12)"
-            : "0 10px 30px rgba(15, 23, 42, 0.08)",
+            ? "0 12px 30px rgba(15, 23, 42, 0.08)"
+            : "none",
         }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        className="mx-auto max-w-6xl overflow-hidden rounded-b-2xl border-x border-b border-white/50 bg-white/55 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-2xl supports-[backdrop-filter]:bg-white/45"
-        style={{ WebkitBackdropFilter: "blur(18px)" }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="w-full border-b border-white/30 bg-white/20 text-slate-900 shadow-none backdrop-blur-xl supports-[backdrop-filter]:bg-white/20"
+        style={{ WebkitBackdropFilter: "blur(12px)" }}
       >
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent" />
-        <nav className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <button
             type="button"
             onClick={handleScrollTop}
@@ -82,20 +96,27 @@ export default function Header({ scrolled, openResume }) {
             </a>
             <button
               onClick={openResume}
-              className="ml-2 rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-slate-800"
+              className="ml-2 rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:bg-slate-800"
             >
               Resume
             </button>
           </div>
 
           <div className="md:hidden">
-            <button
+            <Motion.button
               aria-label={menuOpen ? "Close Menu" : "Open Menu"}
               onClick={() => setMenuOpen((prev) => !prev)}
+              whileTap={{ scale: 0.94 }}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-900/10 bg-white/70 text-slate-900 shadow-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/20"
             >
-              {menuOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
-            </button>
+              <Motion.span
+                animate={{ rotate: menuOpen ? 90 : 0, scale: menuOpen ? 0.95 : 1 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="flex items-center justify-center"
+              >
+                {menuOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
+              </Motion.span>
+            </Motion.button>
           </div>
         </nav>
 
@@ -106,47 +127,60 @@ export default function Header({ scrolled, openResume }) {
               animate="visible"
               exit="hidden"
               variants={menuVariants}
-              className="md:hidden border-t border-white/60 bg-white/75 px-4 pb-5 backdrop-blur-2xl"
+              className="md:hidden overflow-hidden border-t border-white/30 bg-white/20 px-4 pb-5 backdrop-blur-xl shadow-lg"
             >
-              <div className="grid gap-3 pt-4 text-sm font-medium">
-                <a
+              <Motion.div
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: { staggerChildren: 0.05, delayChildren: 0.04 },
+                  },
+                }}
+                className="grid gap-3 pt-4 text-sm font-medium"
+              >
+                <Motion.a
+                  variants={menuItemVariants}
                   href="#about"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
                 >
                   About
-                </a>
-                <a
+                </Motion.a>
+                <Motion.a
+                  variants={menuItemVariants}
                   href="#skills"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
                 >
                   Skills
-                </a>
-                <a
+                </Motion.a>
+                <Motion.a
+                  variants={menuItemVariants}
                   href="#projects"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
                 >
                   Projects
-                </a>
-                <a
+                </Motion.a>
+                <Motion.a
+                  variants={menuItemVariants}
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
                 >
                   Contact
-                </a>
-                <button
+                </Motion.a>
+                <Motion.button
+                  variants={menuItemVariants}
                   onClick={() => {
                     openResume();
                     setMenuOpen(false);
                   }}
-                  className="rounded-xl bg-slate-950 px-4 py-3 text-left font-semibold text-white shadow-lg shadow-slate-950/15 transition hover:bg-slate-800"
+                  className="rounded-xl bg-slate-950 px-4 py-3 text-left font-semibold text-white shadow-lg shadow-slate-950/15 transition duration-200 hover:bg-slate-800"
                 >
                   Resume
-                </button>
-              </div>
+                </Motion.button>
+              </Motion.div>
             </Motion.div>
           )}
         </AnimatePresence>

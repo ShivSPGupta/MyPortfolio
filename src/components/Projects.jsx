@@ -54,13 +54,13 @@ export default function Projects() {
       <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
         Projects
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+      <div className="flex flex-wrap justify-center gap-10">
         {projects.map(({ id, title, description, imageUrl, liveUrl }) => (
           <Motion.div
             key={id}
             variants={cardVariants}
             whileHover={{ scale: 1.03 }}
-            className="relative flex flex-col bg-white/20 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transform-gpu hover:shadow-xl transition-shadow duration-300"
+            className="relative flex w-full max-w-xl flex-col overflow-hidden rounded-xl bg-white/20 backdrop-blur-md shadow-lg transform-gpu transition-shadow duration-300 hover:shadow-xl sm:flex-[1_1_28rem]"
           >
             <div className="h-48 sm:h-56 w-full overflow-hidden rounded-t-xl">
               <img
