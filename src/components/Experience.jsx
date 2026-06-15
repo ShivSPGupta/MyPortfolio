@@ -10,13 +10,6 @@ const workHistory = [
       "Working on scalable backend systems and realtime features using NestJS, TypeScript, PostgreSQL, Redis, and Socket.IO. Built secure authentication workflows with JWT and Redis session validation, developed realtime community chat systems, optimized REST APIs, and contributed to campaign, leaderboard, and admin management modules. Also worked on deployment workflows, automated testing, Swagger documentation, and backend infrastructure using Docker, GitHub Actions, CI/CD pipelines, and Nginx.",
   },
   {
-    role: "MERN Stack (Internship / Project-Based)",
-    company: "SequelString AI Pvt Ltd",
-    period: "Jul 2025 - Sep 2025",
-    description:
-      "Developed responsive MERN stack web applications and optimized RESTful APIs for scalable performance.",
-  },
-  {
     role: "React JS Developer (Internship / Project-Based)",
     company: "QuadB Technologies",
     period: "Apr 2025 - Jun 2025",
