@@ -10,14 +10,7 @@ const workHistory = [
       "Working on scalable backend systems and realtime features using NestJS, TypeScript, PostgreSQL, Redis, and Socket.IO. Built secure authentication workflows with JWT and Redis session validation, developed realtime community chat systems, optimized REST APIs, and contributed to campaign, leaderboard, and admin management modules. Also worked on deployment workflows, automated testing, Swagger documentation, and backend infrastructure using Docker, GitHub Actions, CI/CD pipelines, and Nginx.",
   },
   {
-    role: "React JS Developer (Internship / Project-Based)",
-    company: "QuadB Technologies",
-    period: "Apr 2025 - Jun 2025",
-    description:
-      "Building responsive web apps using React, Tailwind CSS, and Material UI, focusing on performance and UX.",
-  },
-  {
-    role: "Web Developer (Internship / Project-Based)",
+    role: "Web Developer",
     company: "7 Star MedTech Pvt Ltd",
     period: "Jan 2025 - Apr 2025",
     description:

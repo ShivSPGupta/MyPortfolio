@@ -41,118 +41,126 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20 bg-white/20 backdrop-blur-md rounded-xl shadow-lg"
+      className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6"
     >
-      <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
-        Get In Touch
-      </h2>
-      <form onSubmit={sendEmail} className="max-w-3xl mx-auto space-y-8">
-        <TextField
-          fullWidth
-          required
-          name="name"
-          label="Your Name"
-          variant="filled"
-          value={formData.name}
-          onChange={handleChange}
-          sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.25)",
-            backdropFilter: "blur(6px)",
-            borderRadius: 1,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-            },
-            "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-            "& .MuiInputBase-input": { color: "#000" },
-            "& .MuiFilledInput-underline:before": {
-              borderBottomColor: "rgba(0,0,0,0.1)",
-            },
-            "& .MuiFilledInput-underline:hover:before": {
-              borderBottomColor: "rgba(0,0,0,0.3)",
-            },
-          }}
-        />
-        <TextField
-          fullWidth
-          required
-          name="email"
-          type="email"
-          label="Your Email"
-          variant="filled"
-          value={formData.email}
-          onChange={handleChange}
-          sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.25)",
-            backdropFilter: "blur(6px)",
-            borderRadius: 1,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-            },
-            "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-            "& .MuiInputBase-input": { color: "#000" },
-            "& .MuiFilledInput-underline:before": {
-              borderBottomColor: "rgba(0,0,0,0.1)",
-            },
-            "& .MuiFilledInput-underline:hover:before": {
-              borderBottomColor: "rgba(0,0,0,0.3)",
-            },
-          }}
-        />
-        <TextField
-          fullWidth
-          required
-          name="message"
-          label="Message"
-          multiline
-          rows={6}
-          variant="filled"
-          value={formData.message}
-          onChange={handleChange}
-          sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.25)",
-            backdropFilter: "blur(6px)",
-            borderRadius: 1,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-            },
-            "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-            "& .MuiInputBase-input": { color: "#000" },
-            "& .MuiFilledInput-underline:before": {
-              borderBottomColor: "rgba(0,0,0,0.1)",
-            },
-            "& .MuiFilledInput-underline:hover:before": {
-              borderBottomColor: "rgba(0,0,0,0.3)",
-            },
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          startIcon={<EmailIcon />}
-          fullWidth
-          size="large"
-          sx={{
-            fontWeight: "700",
-            px: 5,
-            py: 1.4,
-            borderRadius: "999px",
-            backgroundColor: "#0f172a",
-            boxShadow: "0 12px 30px rgba(15, 23, 42, 0.18)",
-            "&:hover": { backgroundColor: "#1e293b" },
-          }}
-        >
-          Send Message
-        </Button>
-      </form>
-      {status && (
-        <p
-          className={`mt-6 text-center font-medium ${
-            isError ? "text-red-700" : "text-green-700"
-          }`}
-        >
-          {status}
+      <div className="mx-auto w-full max-w-3xl rounded-3xl border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-xl sm:p-8">
+        <h2 className="text-center text-4xl font-bold text-gray-900">
+          Get In Touch
+        </h2>
+        <p className="mt-3 text-center text-gray-600">
+          Have a project in mind? Send a quick message and I&apos;ll get back to
+          you.
         </p>
-      )}
+
+        <form onSubmit={sendEmail} className="mt-10 space-y-6">
+          <TextField
+            fullWidth
+            required
+            name="name"
+            label="Your Name"
+            variant="filled"
+            value={formData.name}
+            onChange={handleChange}
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              backdropFilter: "blur(6px)",
+              borderRadius: 1,
+              "& .MuiFilledInput-root": {
+                backgroundColor: "rgba(255, 255, 255, 0.25)",
+              },
+              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
+              "& .MuiInputBase-input": { color: "#000" },
+              "& .MuiFilledInput-underline:before": {
+                borderBottomColor: "rgba(0,0,0,0.1)",
+              },
+              "& .MuiFilledInput-underline:hover:before": {
+                borderBottomColor: "rgba(0,0,0,0.3)",
+              },
+            }}
+          />
+          <TextField
+            fullWidth
+            required
+            name="email"
+            type="email"
+            label="Your Email"
+            variant="filled"
+            value={formData.email}
+            onChange={handleChange}
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              backdropFilter: "blur(6px)",
+              borderRadius: 1,
+              "& .MuiFilledInput-root": {
+                backgroundColor: "rgba(255, 255, 255, 0.25)",
+              },
+              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
+              "& .MuiInputBase-input": { color: "#000" },
+              "& .MuiFilledInput-underline:before": {
+                borderBottomColor: "rgba(0,0,0,0.1)",
+              },
+              "& .MuiFilledInput-underline:hover:before": {
+                borderBottomColor: "rgba(0,0,0,0.3)",
+              },
+            }}
+          />
+          <TextField
+            fullWidth
+            required
+            name="message"
+            label="Message"
+            multiline
+            rows={6}
+            variant="filled"
+            value={formData.message}
+            onChange={handleChange}
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              backdropFilter: "blur(6px)",
+              borderRadius: 1,
+              "& .MuiFilledInput-root": {
+                backgroundColor: "rgba(255, 255, 255, 0.25)",
+              },
+              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
+              "& .MuiInputBase-input": { color: "#000" },
+              "& .MuiFilledInput-underline:before": {
+                borderBottomColor: "rgba(0,0,0,0.1)",
+              },
+              "& .MuiFilledInput-underline:hover:before": {
+                borderBottomColor: "rgba(0,0,0,0.3)",
+              },
+            }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            startIcon={<EmailIcon />}
+            fullWidth
+            size="large"
+            sx={{
+              fontWeight: "700",
+              px: 5,
+              py: 1.4,
+              borderRadius: "999px",
+              backgroundColor: "#0f172a",
+              boxShadow: "0 12px 30px rgba(15, 23, 42, 0.18)",
+              "&:hover": { backgroundColor: "#1e293b" },
+            }}
+          >
+            Send Message
+          </Button>
+        </form>
+
+        {status && (
+          <p
+            className={`mt-6 text-center font-medium ${
+              isError ? "text-red-700" : "text-green-700"
+            }`}
+          >
+            {status}
+          </p>
+        )}
+      </div>
     </section>
   );
 }

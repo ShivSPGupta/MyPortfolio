@@ -40,6 +40,8 @@ import {
   SiTypescript,
   SiPython,
   SiCplusplus,
+  SiJest,
+  SiSwagger,
 } from "react-icons/si";
 
 const skillGroups = [
@@ -80,6 +82,7 @@ const skillGroups = [
       { name: "NestJS", icon: <SiNestjs className="text-red-600" /> },
       { name: "Socket.IO", icon: <SiSocketdotio className="text-purple-600" /> },
       { name: "JWT", icon: <SiJsonwebtokens className="text-purple-600" /> },
+      { name: "Swagger", icon: <SiSwagger className="text-green-500" /> },
     ],
   },
   {
@@ -106,6 +109,7 @@ const skillGroups = [
       { name: "VS Code", icon: <VscVscode className="text-blue-700" /> },
       { name: "IntelliJ IDEA", icon: <SiIntellijidea className="text-pink-600" /> },
       { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
+      { name: "Jest", icon: <SiJest className="text-red-500" /> },
       { name: "AWS", icon: <FaAws className="text-orange-500" /> },
       { name: "Vercel", icon: <SiVercel className="text-black" /> },
     ],
