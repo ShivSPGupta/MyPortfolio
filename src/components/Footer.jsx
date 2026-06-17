@@ -10,7 +10,7 @@ export default function Footer() {
       }}
     >
       <div className="max-w-6xl mx-auto text-gray-700 dark:text-gray-500 text-sm sm:text-base">
-        © {new Date().getFullYear()} Shiv Shankar Gupta. All rights reserved.
+        &copy; {new Date().getFullYear()} Shiv Shankar Gupta. All rights reserved.
       </div>
     </footer>
   );

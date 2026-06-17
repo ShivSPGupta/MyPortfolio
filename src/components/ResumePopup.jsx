@@ -22,7 +22,7 @@ export default function ResumePopup({ open, onClose }) {
   const zoomPluginInstance = zoomPlugin();
   const { ZoomInButton, ZoomOutButton, CurrentScale } = zoomPluginInstance;
 
-  const pdfUrl = "/ShivShankarGupta_MERN_Software_Engineer_May-2026.pdf";
+  const pdfUrl = "/ShivShankarGupta_MERN_Software_Engineer_June-2026.pdf";
 
   return (
     <Dialog
