@@ -53,17 +53,17 @@ export default function Header({ scrolled, openResume }) {
           <button
             type="button"
             onClick={handleScrollTop}
-            className="group flex items-center gap-3 text-left"
+            className="group flex min-w-0 items-center gap-3 text-left"
             aria-label="Scroll to top"
           >
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-bold tracking-[0.2em] text-white shadow-lg shadow-slate-900/20 transition-transform duration-300 group-hover:scale-105">
               SS
             </span>
-            <span className="hidden sm:block">
+            <span className="min-w-0">
               <span className="block text-sm font-semibold tracking-[0.24em] text-slate-500 uppercase">
                 Portfolio
               </span>
-              <span className="block text-base font-bold tracking-tight text-slate-950">
+              <span className="block truncate text-base font-bold tracking-tight text-slate-950">
                 Shiv Shankar Gupta
               </span>
             </span>
@@ -105,6 +105,8 @@ export default function Header({ scrolled, openResume }) {
           <div className="md:hidden">
             <Motion.button
               aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setMenuOpen((prev) => !prev)}
               whileTap={{ scale: 0.94 }}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-900/10 bg-white/70 text-slate-900 shadow-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/20"
@@ -123,11 +125,12 @@ export default function Header({ scrolled, openResume }) {
         <AnimatePresence>
           {menuOpen && (
             <Motion.div
+              id="mobile-navigation"
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={menuVariants}
-              className="md:hidden overflow-hidden border-t border-white/30 bg-white/20 px-4 pb-5 backdrop-blur-xl shadow-lg"
+              className="overflow-hidden border-t border-white/30 bg-white/75 px-4 pb-5 shadow-lg backdrop-blur-xl md:hidden"
             >
               <Motion.div
                 variants={{
@@ -142,7 +145,7 @@ export default function Header({ scrolled, openResume }) {
                   variants={menuItemVariants}
                   href="#about"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
                 >
                   About
                 </Motion.a>
@@ -150,7 +153,7 @@ export default function Header({ scrolled, openResume }) {
                   variants={menuItemVariants}
                   href="#skills"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
                 >
                   Skills
                 </Motion.a>
@@ -158,7 +161,7 @@ export default function Header({ scrolled, openResume }) {
                   variants={menuItemVariants}
                   href="#projects"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
                 >
                   Projects
                 </Motion.a>
@@ -166,7 +169,7 @@ export default function Header({ scrolled, openResume }) {
                   variants={menuItemVariants}
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950"
+                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
                 >
                   Contact
                 </Motion.a>
@@ -176,7 +179,7 @@ export default function Header({ scrolled, openResume }) {
                     openResume();
                     setMenuOpen(false);
                   }}
-                  className="rounded-xl bg-slate-950 px-4 py-3 text-left font-semibold text-white shadow-lg shadow-slate-950/15 transition duration-200 hover:bg-slate-800"
+                  className="rounded-xl bg-slate-950 px-4 py-3 text-left font-semibold text-white shadow-lg shadow-slate-950/15 transition duration-200 hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
                 >
                   Resume
                 </Motion.button>

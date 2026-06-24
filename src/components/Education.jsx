@@ -11,7 +11,7 @@ const education = [
   {
     title: "PG Diploma in Full Stack Development (MERN)",
     institution: "upGrad",
-    period: "2023",
+    period: "2022 - 2023",
     detail: "Completed professional certification focused on MERN, modern Java and DSA.",
   },
   {
