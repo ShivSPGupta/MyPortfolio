@@ -1,5 +1,5 @@
 import React from "react";
-import { motion as Motion } from "motion/react";
+import { motion as Motion, useReducedMotion } from "motion/react";
 
 const blobs = [
   {
@@ -18,6 +18,25 @@ const blobs = [
 ];
 
 export default function BackgroundEffect() {
+  const prefersReducedMotion = useReducedMotion();
+  const [isCompactViewport, setIsCompactViewport] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const syncViewport = () => setIsCompactViewport(mediaQuery.matches);
+
+    syncViewport();
+    mediaQuery.addEventListener("change", syncViewport);
+
+    return () => mediaQuery.removeEventListener("change", syncViewport);
+  }, []);
+
+  const visibleBlobs = isCompactViewport ? blobs.slice(0, 1) : blobs;
+
   return (
     <div
       aria-hidden="true"
@@ -26,16 +45,20 @@ export default function BackgroundEffect() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-size[72px_72px] opacity-40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,rgba(255,255,255,0.18)_60%,rgba(255,255,255,0.45)_100%)]" />
 
-      {blobs.map(({ className, animate }, index) => (
+      {visibleBlobs.map(({ className, animate }, index) => (
         <Motion.div
           key={index}
           className={`absolute rounded-full blur-3xl ${className}`}
-          animate={animate}
-          transition={{
-            duration: 16 + index * 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={prefersReducedMotion ? undefined : animate}
+          transition={
+            prefersReducedMotion
+              ? undefined
+              : {
+                  duration: 16 + index * 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }
+          }
         />
       ))}
 

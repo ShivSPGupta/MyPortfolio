@@ -4,10 +4,34 @@ import { Menu, Close } from "@mui/icons-material";
 
 export default function Header({ scrolled, openResume }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ["about", "skills", "projects", "contact"];
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuOpen(false);
+  };
+
+  const navigateToSection = (sectionId) => {
+    setMenuOpen(false);
+
+    let attempts = 0;
+
+    const tryScroll = () => {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", `#${sectionId}`);
+        return;
+      }
+
+      if (attempts < 10) {
+        attempts += 1;
+        window.setTimeout(tryScroll, 100);
+      }
+    };
+
+    window.requestAnimationFrame(tryScroll);
   };
 
   const menuVariants = {
@@ -70,30 +94,19 @@ export default function Header({ scrolled, openResume }) {
           </button>
 
           <div className="hidden items-center gap-2 md:flex">
-            <a
-              href="#about"
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
-            >
-              About
-            </a>
-            <a
-              href="#skills"
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
-            >
-              Skills
-            </a>
-            <a
-              href="#projects"
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
-            >
-              Contact
-            </a>
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateToSection(item);
+                }}
+                className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-950"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            ))}
             <button
               onClick={openResume}
               className="ml-2 rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:bg-slate-800"
@@ -141,12 +154,15 @@ export default function Header({ scrolled, openResume }) {
                 }}
                 className="grid gap-3 pt-4 text-sm font-medium"
               >
-                {["about", "skills", "projects", "contact"].map((item) => (
+                {navItems.map((item) => (
                   <Motion.a
                     key={item}
                     variants={menuItemVariants}
                     href={`#${item}`}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigateToSection(item);
+                    }}
                     className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
                   >
                     {item.charAt(0).toUpperCase() + item.slice(1)}
