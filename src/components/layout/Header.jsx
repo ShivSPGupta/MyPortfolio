@@ -46,7 +46,7 @@ export default function Header({ scrolled, openResume }) {
             : "none",
         }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        className="w-full border-b border-white/30 bg-white/20 text-slate-900 shadow-none backdrop-blur-xl supports-[backdrop-filter]:bg-white/20"
+        className="w-full border-b border-white/30 bg-white/20 text-slate-900 shadow-none backdrop-blur-xl supports-backdrop-filter:bg-white/20"
         style={{ WebkitBackdropFilter: "blur(12px)" }}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
@@ -141,38 +141,17 @@ export default function Header({ scrolled, openResume }) {
                 }}
                 className="grid gap-3 pt-4 text-sm font-medium"
               >
-                <Motion.a
-                  variants={menuItemVariants}
-                  href="#about"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
-                >
-                  About
-                </Motion.a>
-                <Motion.a
-                  variants={menuItemVariants}
-                  href="#skills"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
-                >
-                  Skills
-                </Motion.a>
-                <Motion.a
-                  variants={menuItemVariants}
-                  href="#projects"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
-                >
-                  Projects
-                </Motion.a>
-                <Motion.a
-                  variants={menuItemVariants}
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
-                >
-                  Contact
-                </Motion.a>
+                {["about", "skills", "projects", "contact"].map((item) => (
+                  <Motion.a
+                    key={item}
+                    variants={menuItemVariants}
+                    href={`#${item}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-xl px-4 py-3 text-slate-700 transition duration-200 hover:bg-slate-900/5 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/20"
+                  >
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </Motion.a>
+                ))}
                 <Motion.button
                   variants={menuItemVariants}
                   onClick={() => {

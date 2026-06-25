@@ -1,5 +1,3 @@
-import React from "react";
-import { motion as Motion } from "motion/react";
 import {
   FaReact,
   FaNodeJs,
@@ -44,7 +42,7 @@ import {
   SiSwagger,
 } from "react-icons/si";
 
-const skillGroups = [
+export const skillGroups = [
   {
     title: "Frontend",
     description: "UI, styling, and interactive app development",
@@ -115,78 +113,3 @@ const skillGroups = [
     ],
   },
 ];
-
-const groupVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: "easeOut" },
-  },
-};
-
-export default function Skills() {
-  return (
-    <Motion.section
-      id="skills"
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20"
-      variants={groupVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      <h2 className="text-4xl font-bold mb-4 text-center text-gray-900">
-        Skills
-      </h2>
-      <p className="mb-12 text-center text-gray-600">
-        Organized by the parts of the stack I use most often.
-      </p>
-
-      <div className="flex flex-col gap-8">
-        {skillGroups.map((group) => (
-          <Motion.div
-            key={group.title}
-            variants={itemVariants}
-            className="w-full max-w-4xl mx-auto rounded-xl bg-white/20 backdrop-blur-md p-6 shadow-lg border border-white/20 text-center"
-          >
-            <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                {group.title}
-              </h3>
-              <p className="mt-1 text-sm text-gray-600">{group.description}</p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-6">
-              {group.skills.map(({ name, icon }) => (
-                <Motion.div
-                  key={name}
-                  className="flex w-24 flex-col items-center justify-center space-y-3 text-center"
-                  whileHover={{ scale: 1.12, color: "#2563EB" }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  title={name}
-                  aria-label={name}
-                >
-                  <div className="text-5xl transition-colors duration-300">
-                    {icon}
-                  </div>
-                  <span className="text-sm font-semibold text-gray-700">
-                    {name}
-                  </span>
-                </Motion.div>
-              ))}
-            </div>
-          </Motion.div>
-        ))}
-      </div>
-    </Motion.section>
-  );
-}

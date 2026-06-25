@@ -1,16 +1,8 @@
 import React from "react";
 import { motion as Motion } from "motion/react";
 import { Button } from "@mui/material";
-import SocialLinks from "./SocialLinks";
-
-const phrases = [
-  "Software Engineer",
-  "Full Stack Developer",
-  "React.js Developer",
-  "Next.js Developer",
-  "NestJS Developer",
-  "Backend Developer",
-];
+import SocialLinks from "../common/SocialLinks";
+import { heroPhrases } from "../../data/hero";
 
 export default function Hero() {
   const [currentPhrase, setCurrentPhrase] = React.useState(0);
@@ -20,13 +12,13 @@ export default function Hero() {
     let charIndex = 0;
 
     const typeInterval = setInterval(() => {
-      setDisplayedText(phrases[currentPhrase].slice(0, charIndex + 1));
+      setDisplayedText(heroPhrases[currentPhrase].slice(0, charIndex + 1));
       charIndex++;
 
-      if (charIndex === phrases[currentPhrase].length) {
+      if (charIndex === heroPhrases[currentPhrase].length) {
         clearInterval(typeInterval);
         setTimeout(() => {
-          setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+          setCurrentPhrase((prev) => (prev + 1) % heroPhrases.length);
           setDisplayedText("");
         }, 1000);
       }
@@ -41,7 +33,7 @@ export default function Hero() {
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
-        className="text-6xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg sm:text-7xl mb-6"
+        className="text-6xl font-extrabold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg sm:text-7xl mb-6"
       >
         Hi, I'm Shiv Shankar Gupta
       </Motion.h1>
@@ -63,10 +55,10 @@ export default function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mt-4 text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-md"
+        className="mt-4 text-3xl font-extrabold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-md"
       >
         {displayedText}
-        <span className="ml-1 inline-block w-[2px] bg-current animate-[blink_1s_infinite]" />
+        <span className="ml-1 inline-block w-0.5 bg-current animate-[blink_1s_infinite]" />
       </Motion.p>
 
       <Motion.div

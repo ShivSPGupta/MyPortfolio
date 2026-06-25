@@ -1,5 +1,5 @@
 import { motion as Motion } from "motion/react";
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "../common/SocialLinks";
 
 export default function About() {
   return (

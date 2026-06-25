@@ -21,9 +21,9 @@ export default function BackgroundEffect() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.92),_rgba(241,245,249,0.92)_45%,_rgba(226,232,240,1)_100%)]"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.92),rgba(241,245,249,0.92)_45%,rgba(226,232,240,1)_100%)]"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-size[72px_72px] opacity-40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,rgba(255,255,255,0.18)_60%,rgba(255,255,255,0.45)_100%)]" />
 
       {blobs.map(({ className, animate }, index) => (
@@ -39,8 +39,8 @@ export default function BackgroundEffect() {
         />
       ))}
 
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/80 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-100 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-white/80 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-slate-100 to-transparent" />
     </div>
   );
 }

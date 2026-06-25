@@ -1,44 +1,5 @@
-import React from "react";
 import { motion as Motion } from "motion/react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaYoutube,
-} from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-
-const socials = [
-  {
-    name: "GitHub",
-    icon: <FaGithub />,
-    url: "https://github.com/ShivSPGupta",
-    color: "#181717",
-  },
-  {
-    name: "LinkedIn",
-    icon: <FaLinkedin />,
-    url: "https://www.linkedin.com/in/shiv-shankar-gupta/",
-    color: "#0A66C2",
-  },
-  {
-    name: "X",
-    icon: <FaSquareXTwitter />,
-    url: "https://x.com/ShivGupta101",
-    color: "#181717",
-  },
-  {
-    name: "YouTube",
-    icon: <FaYoutube />,
-    url: "https://www.youtube.com/@ShivShankarGupta01",
-    color: "#FF0000",
-  },
-  // {
-  //   name: "Instagram",
-  //   icon: <FaInstagram />,
-  //   url: "https://instagram.com/yourusername",
-  //   color: "#E4405F",
-  // },
-];
+import { socialLinks } from "../../data/socialLinks.jsx";
 
 const containerVariants = {
   hidden: {},
@@ -62,7 +23,7 @@ export default function SocialLinks({ className = "" }) {
       initial="hidden"
       animate="visible"
     >
-      {socials.map(({ name, icon, url, color }) => (
+      {socialLinks.map(({ name, icon, url, color }) => (
         <Motion.a
           key={name}
           href={url}
@@ -75,7 +36,6 @@ export default function SocialLinks({ className = "" }) {
           whileHover={{ scale: 1.3 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          {/* Animate ICON color only (fixes glitch) */}
           <Motion.span
             className="text-6xl"
             whileHover={{ color }}

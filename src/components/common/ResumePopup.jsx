@@ -81,7 +81,6 @@ export default function ResumePopup({ open, onClose }) {
         </Stack>
       </DialogTitle>
 
-      {/* Toolbar */}
       <Stack
         direction="row"
         spacing={2}
@@ -94,7 +93,6 @@ export default function ResumePopup({ open, onClose }) {
         <CurrentScale />
         <ZoomInButton />
 
-        {/* Download */}
         <a
           href={pdfUrl}
           download="ShivShankarGupta_Resume.pdf"

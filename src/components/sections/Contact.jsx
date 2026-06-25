@@ -3,6 +3,23 @@ import { Button, TextField } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import emailjs from "emailjs-com";
 
+const fieldSx = {
+  backgroundColor: "rgba(255, 255, 255, 0.25)",
+  backdropFilter: "blur(6px)",
+  borderRadius: 1,
+  "& .MuiFilledInput-root": {
+    backgroundColor: "rgba(255, 255, 255, 0.25)",
+  },
+  "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
+  "& .MuiInputBase-input": { color: "#000" },
+  "& .MuiFilledInput-underline:before": {
+    borderBottomColor: "rgba(0,0,0,0.1)",
+  },
+  "& .MuiFilledInput-underline:hover:before": {
+    borderBottomColor: "rgba(0,0,0,0.3)",
+  },
+};
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -61,22 +78,7 @@ export default function Contact() {
             variant="filled"
             value={formData.name}
             onChange={handleChange}
-            sx={{
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-              backdropFilter: "blur(6px)",
-              borderRadius: 1,
-              "& .MuiFilledInput-root": {
-                backgroundColor: "rgba(255, 255, 255, 0.25)",
-              },
-              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-              "& .MuiInputBase-input": { color: "#000" },
-              "& .MuiFilledInput-underline:before": {
-                borderBottomColor: "rgba(0,0,0,0.1)",
-              },
-              "& .MuiFilledInput-underline:hover:before": {
-                borderBottomColor: "rgba(0,0,0,0.3)",
-              },
-            }}
+            sx={fieldSx}
           />
           <TextField
             fullWidth
@@ -87,22 +89,7 @@ export default function Contact() {
             variant="filled"
             value={formData.email}
             onChange={handleChange}
-            sx={{
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-              backdropFilter: "blur(6px)",
-              borderRadius: 1,
-              "& .MuiFilledInput-root": {
-                backgroundColor: "rgba(255, 255, 255, 0.25)",
-              },
-              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-              "& .MuiInputBase-input": { color: "#000" },
-              "& .MuiFilledInput-underline:before": {
-                borderBottomColor: "rgba(0,0,0,0.1)",
-              },
-              "& .MuiFilledInput-underline:hover:before": {
-                borderBottomColor: "rgba(0,0,0,0.3)",
-              },
-            }}
+            sx={fieldSx}
           />
           <TextField
             fullWidth
@@ -114,22 +101,7 @@ export default function Contact() {
             variant="filled"
             value={formData.message}
             onChange={handleChange}
-            sx={{
-              backgroundColor: "rgba(255, 255, 255, 0.25)",
-              backdropFilter: "blur(6px)",
-              borderRadius: 1,
-              "& .MuiFilledInput-root": {
-                backgroundColor: "rgba(255, 255, 255, 0.25)",
-              },
-              "& .MuiInputLabel-root": { color: "rgba(0,0,0,0.7)" },
-              "& .MuiInputBase-input": { color: "#000" },
-              "& .MuiFilledInput-underline:before": {
-                borderBottomColor: "rgba(0,0,0,0.1)",
-              },
-              "& .MuiFilledInput-underline:hover:before": {
-                borderBottomColor: "rgba(0,0,0,0.3)",
-              },
-            }}
+            sx={fieldSx}
           />
           <Button
             type="submit"
