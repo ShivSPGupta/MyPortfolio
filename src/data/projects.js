@@ -62,4 +62,26 @@ export const projects = [
     ],
     liveUrl: "https://todo-app-intwithapi.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Blogging Platform",
+    description:
+      "Full-stack blogging platform with secure auth, role-based access, draft-to-publish workflows, profile-backed authors, and PostgreSQL full-text search.",
+    stack: [
+      "React",
+      "Vite",
+      "Supabase Auth",
+      "PostgreSQL",
+      "Row Level Security",
+      "React Router",
+      "Vercel",
+    ],
+    features: [
+      "Email and phone authentication",
+      "Role-based access control",
+      "Draft and publish workflow",
+      "Full-text search",
+    ],
+    liveUrl: "https://blog-weld-sigma-96.vercel.app/",
+  },
 ];
