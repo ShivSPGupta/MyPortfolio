@@ -2,19 +2,4 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 1rem;
-}
-
-[id] {
-  scroll-margin-top: 1rem;
-}
-
-@media (min-width: 640px) {
-  html {
-    scroll-padding-top: 5rem;
-  }
-
-  [id] {
-    scroll-margin-top: 5rem;
-  }
 }

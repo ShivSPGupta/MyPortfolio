@@ -1,4 +1,5 @@
 import { motion as Motion } from "motion/react";
+import { skillHover, springQuick } from "../../animations/motionVariants";
 
 export default function SkillGroupCard({ group, variants }) {
   return (
@@ -16,8 +17,8 @@ export default function SkillGroupCard({ group, variants }) {
           <Motion.div
             key={name}
             className="flex w-24 flex-col items-center justify-center space-y-3 text-center"
-            whileHover={{ scale: 1.12, color: "#2563EB" }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={skillHover}
+            transition={springQuick}
             title={name}
             aria-label={name}
           >

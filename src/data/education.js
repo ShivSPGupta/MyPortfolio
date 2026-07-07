@@ -6,7 +6,7 @@ export const education = [
     detail: "Studied Mechatronics, FEA, and Design Engineering.",
   },
   {
-    title: "PG Diploma in Full Stack Development (MERN)",
+    title: "Post Graduate Certificate in Full Stack Development (MERN)",
     institution: "upGrad",
     period: "2022 - 2023",
     detail:

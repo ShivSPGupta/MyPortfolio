@@ -2,26 +2,58 @@ import React, { useState } from "react";
 import { motion as Motion, AnimatePresence } from "motion/react";
 import { Menu, Close } from "@mui/icons-material";
 
+const SECTION_SCROLL_GAP = 16;
+
 export default function Header({ scrolled, openResume }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navItems = ["about", "skills", "projects", "contact"];
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}`
+    );
     setMenuOpen(false);
   };
 
   const navigateToSection = (sectionId) => {
+    const shouldWaitForMenuClose = menuOpen;
+
     setMenuOpen(false);
 
     let attempts = 0;
+
+    const scrollToTarget = (section) => {
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+      const targetTop =
+        section.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        SECTION_SCROLL_GAP;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: "smooth",
+      });
+    };
 
     const tryScroll = () => {
       const section = document.getElementById(sectionId);
 
       if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollToTarget(section);
         window.history.replaceState(null, "", `#${sectionId}`);
+
+        window.setTimeout(() => {
+          const settledSection = document.getElementById(sectionId);
+
+          if (settledSection) {
+            scrollToTarget(settledSection);
+          }
+        }, 450);
+
         return;
       }
 
@@ -31,7 +63,10 @@ export default function Header({ scrolled, openResume }) {
       }
     };
 
-    window.requestAnimationFrame(tryScroll);
+    window.setTimeout(
+      () => window.requestAnimationFrame(tryScroll),
+      shouldWaitForMenuClose ? 320 : 0
+    );
   };
 
   const menuVariants = {

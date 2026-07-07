@@ -1,35 +1,23 @@
 import { motion as Motion } from "motion/react";
+import {
+  createStaggerContainer,
+  fadeUp,
+  revealViewport,
+} from "../../animations/motionVariants";
 import SkillGroupCard from "../cards/SkillGroupCard";
 import SectionTitle from "../common/SectionTitle";
 import { skillGroups } from "../../data/skills.jsx";
 
-const groupVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: "easeOut" },
-  },
-};
+const groupVariants = createStaggerContainer();
 
 export default function Skills() {
   return (
-    <Motion.section
-      id="skills"
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-20"
+    <section id="skills" className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+      <Motion.div
       variants={groupVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+        viewport={revealViewport}
     >
       <SectionTitle className="mb-4">Skills</SectionTitle>
       <p className="mb-12 text-center text-gray-600">
@@ -41,10 +29,11 @@ export default function Skills() {
           <SkillGroupCard
             key={group.title}
             group={group}
-            variants={itemVariants}
+              variants={fadeUp}
           />
         ))}
       </div>
-    </Motion.section>
+      </Motion.div>
+    </section>
   );
 }

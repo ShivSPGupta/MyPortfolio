@@ -1,5 +1,6 @@
 import { motion as Motion } from "motion/react";
 import TagList from "../common/TagList";
+import { cardFadeUp, softCardHover } from "../../animations/motionVariants";
 import {
   FALLBACK_PROJECT_IMAGE,
   getProjectScreenshotUrl,
@@ -25,15 +26,8 @@ export default function ProjectCard({
 
   return (
     <Motion.div
-      variants={{
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.6, ease: "easeOut" },
-        },
-      }}
-      whileHover={{ scale: 1.03 }}
+      variants={cardFadeUp}
+      whileHover={softCardHover}
       className={`group relative flex h-full w-full transform-gpu flex-col overflow-hidden rounded-2xl border border-white/25 bg-white/20 shadow-lg backdrop-blur-md transition-shadow duration-300 hover:shadow-xl ${
         isCenteredLastCard
           ? "lg:col-span-2 lg:mx-auto lg:max-w-[calc((100%-2.5rem)/2)]"
